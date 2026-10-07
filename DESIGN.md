@@ -164,3 +164,7 @@ All interactive elements share a coral focus outline of (3px), offset by (4px). 
 - Don't turn every supporting label into coral emphasis.
 - Don't treat the storefront's opening composition as a rule for every screen.
 - Don't imply live authentication, inventory or checkout through visual status.
+
+## Homepage banner
+
+The home opening uses two scroll-snap slides inside a cream frame with (22px) corners and generous (44px 48px) desktop padding. It retains the paper/coral identity and uses the real supplied product photos. Brand display type reaches (78px); product display type reaches (64px). Mobile panels stack copy above a (260px) visual with (30px 24px) padding. Controls sit below the image/copy region: cyclic arrows, count, indicators and pause. Native swipe and keyboard arrows provide manual navigation; inactive slides are inert and hidden from assistive technology. Motion is off when reduced motion is requested, and timers are disposed on route changes.

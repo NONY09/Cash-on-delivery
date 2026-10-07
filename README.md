@@ -1,6 +1,6 @@
 # Chega — loja com pagamento na entrega
 
-Loja afiliada com a Resina Extreme e ofertas reais da Logzz. Nome provisório, catálogo público, busca e categorias, página de produto, pedidos individuais por produto, sem carrinho, kits específicos por oferta, FAQ em formato de conversa, suporte WhatsApp e telas de conta. Sem etapa de build: o SDK oficial do Supabase 2.117.2 é servido localmente em `vendor/`, com versão, lockfile, origem e licença registrados.
+Loja afiliada com a Resina Extreme e ofertas reais da Logzz. Nome Chega. aprovado, banner rotativo, catálogo público, busca e categorias, página de produto, pedidos individuais por produto, sem carrinho, kits específicos por oferta, FAQ em formato de conversa, suporte WhatsApp e telas de conta. Sem etapa de build: o SDK oficial do Supabase 2.117.2 é servido localmente em `vendor/`, com versão, lockfile, origem e licença registrados.
 
 ## Ver no computador
 Abra `index.html`. Navegação e arquivos são relativos, funcionando também pelo arquivo local. Para um servidor simples opcional, execute `python3 -m http.server 8080` nesta pasta e acesse `http://localhost:8080`.
@@ -44,7 +44,7 @@ Foram aplicados os snapshots em `supabase/sql/chega_account_setup.sql` e `chega_
 A Edge Function `delete-account` está implantada, com `verify_jwt = true`, validação adicional pelo Auth e perfil, nova confirmação de senha, revogação global de sessões e exclusão em cascata. A chave administrativa existe somente no ambiente da função; não é enviada ao site. O corpo nunca aceita um ID de usuário escolhido pelo cliente.
 
 Antes de liberar cadastros públicos:
-1. Informar o endereço HTTPS definitivo da loja e configurar **Site URL** e **Redirect URLs** exatas no Supabase. O retorno esperado é a URL da loja com `#conta`, sem curingas gerais.
+1. No Supabase → Authentication → URL Configuration, configurar **Site URL**: `https://cchega.netlify.app/`; **Redirect URLs**: `https://cchega.netlify.app/#conta`. Esse endereço foi informado pelo usuário. Evitar curingas gerais. A configuração no painel ainda não foi verificada.
 2. Configurar SMTP de um serviço autorizado. O SMTP padrão do Supabase aceita somente endereços da equipe e até 2 mensagens/hora; não serve para clientes. Manter confirmação de e-mail ativada e troca segura de e-mail. Credenciais SMTP devem ficar no painel, nunca no repositório.
 3. Configurar Cloudflare Turnstile no Auth, mantendo a chave secreta somente no painel, e colocar a sitekey pública em `captchaSiteKey`. O widget e o envio de token já estão preparados na criação, login, recuperação, reenvio e confirmação de senha para exclusão. O script do Turnstile só é carregado na área da conta quando houver sitekey configurada. Ajustar a senha mínima no Auth para 12 caracteres e as taxas de envio ao limite do provedor. O mínimo no formulário já é 12; não é uma afirmação sobre a configuração atual do servidor.
 4. Publicar nome/razão social verdadeiro do responsável pelo catálogo, canal de atendimento e revisar a política, inclusive hospedagem internacional nos EUA. Um checkbox não garante conformidade jurídica.
@@ -67,8 +67,16 @@ Imagem conceitual produzida com a ferramenta integrada de geração de imagens. 
 Prompt completo e origem registrados em `assets/IMAGE_SOURCE.txt`. Fontes URW Gothic e Nimbus Sans servidas localmente. Licenças e avisos em `assets/fonts/LICENSE.txt`.
 
 ## Verificação
-Execute `node tests/catalog.test.cjs` e `node tests/auth.test.cjs` para testar o catálogo e os links sem instalar dependências. As 25 entradas sintéticas existem somente na memória do teste, não na loja publicada.
+Execute `node tests/catalog.test.cjs`, `node tests/auth.test.cjs` e `node tests/banner.test.cjs` para testar o catálogo e os links sem instalar dependências. As 25 entradas sintéticas existem somente na memória do teste, não na loja publicada.
 
 A entrega inclui validação de sintaxe JavaScript, caminhos dos arquivos, busca/categorias com vários produtos, carregamento em lotes, links de cada kit e ausência de carrinho e bloqueio de produtos de demonstração. Capturas e testes em navegador não foram realizados neste ambiente; revise no Netlify em celular e desktop antes de abrir as vendas.
 
 Os testes SQL em `supabase/sql/chega_account_security_test.sql` executaram em transação e rollback, comprovando isolamento, atualização própria, bloqueio de outro dono, imutabilidade do consentimento, acesso anônimo negado, bloqueio de e-mail não confirmado e sessão revogada, trava de cadastro e exclusão em cascata. Nenhum e-mail de teste foi enviado. Entrega de e-mails, CAPTCHA, SMS, UI no navegador e callback de domínio real continuam pendentes de configuração/verificação.
+
+## Ativar CAPTCHA e entrega de confirmações
+
+Cloudflare → Turnstile → Add widget: nome `Chega`, hostname `cchega.netlify.app` (sem protocolo ou caminho), modo `Managed`. O plano gratuito atende este widget; não exige transferir o domínio para Cloudflare. Copiar a **sitekey pública** para `captchaSiteKey` em `auth-config.js`. Copiar a **secret key** somente para Supabase → Authentication → Bot and Abuse Protection → Enable CAPTCHA protection → Turnstile. Nunca enviar a secret key ao frontend ou ao GitHub. Documentação: https://developers.cloudflare.com/turnstile/get-started/widget-management/dashboard/ ; https://developers.cloudflare.com/turnstile/plans/ ; https://supabase.com/docs/guides/auth/auth-captcha
+
+Confirmação por e-mail exige SMTP próprio: remetente autorizado/verificado, host, porta, usuário e senha do provedor configurados no painel Supabase. Confirmação por telefone exige provedor SMS compatível (por exemplo Twilio, Vonage ou MessageBird), com custos externos e limites de envio. Não habilitar SMS nem contratar serviço pago automaticamente. Se CMS significar gerenciamento de conteúdo, trata-se de um painel de produtos separado: o catálogo atual é editado em `products.js`, e não há CMS administrativo implantado.
+
+O banner usa `banner.js`, sem bibliotecas novas, imagens adicionais ou chamadas ao Supabase. Giro a cada 6,5 segundos, pausa, navegação manual, deslize nativo, respeito a movimento reduzido e encerramento dos temporizadores ao sair da página.

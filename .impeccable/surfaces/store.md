@@ -2,7 +2,7 @@
 
 ## First-viewport contract
 
-A large three-line headline, the explicit payment mechanism, one catalog CTA, and the supplied Resina Extreme product image with a small delivery/payment slip. No fictional proof. This is the intended opening composition; viewport visibility has not been verified in a browser.
+A spacious cream banner begins with a large three-line headline, the explicit payment mechanism, one catalog CTA, and the supplied Resina Extreme product image with a small delivery/payment slip. A second slide highlights the actual product, its minimum configured kit price and supplier image. Native horizontal swipe, arrows, selection indicators and pause give control. Autoplay runs every 6.5 seconds only while visible, unfocused and unhovered, stops after manual navigation, and is disabled for reduced motion. No fictional proof. This is the intended opening composition; viewport visibility has not been verified in a browser.
 
 ## Sequence and operation
 
@@ -14,7 +14,7 @@ Hero and detail use two desktop columns; the catalog spans the full container wi
 
 ## Evidence and scope
 
-Chega is a replaceable working name. The demo brush is no longer in the catalog. Resina Extreme photos, video and six external affiliate offers are supplied and prices were checked in the actual checkout. Authentication and profile UI are integrated; public signup remains gated pending mail delivery, CAPTCHA, redirect URLs and merchant identity. Internal order submission, live coverage and inventory are deferred. Do not present fictional testimonials, certifications or merchant evidence. This brief records source intent, not browser QA.
+Chega. is the name approved by the user. The demo brush is no longer in the catalog. Resina Extreme photos, video and six external affiliate offers are supplied and prices were checked in the actual checkout. Authentication and profile UI are integrated; public signup remains gated pending mail delivery, CAPTCHA, redirect URLs and merchant identity. Internal order submission, live coverage and inventory are deferred. Do not present fictional testimonials, certifications or merchant evidence. This brief records source intent, not browser QA.
 
 ## Purchase decision
 Cart retired: each kit points directly to its own affiliate checkout. No combined order across products. Category filters and search operate on the complete supplied catalog; only rendering is batched. Test fixtures may simulate many products, but are never shipped as catalog entries.

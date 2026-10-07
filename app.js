@@ -15,6 +15,7 @@
   let category = 'Todos';
   let query = '';
   let chatReturnFocus = null;
+  let bannerController = null;
   const catalogPageSize = 12;
   let catalogLimit = catalogPageSize;
   // Remove only the retired cart; no customer data is stored by this catalog.
@@ -103,12 +104,24 @@
     return url ? `<a class="button primary order-button" href="${escape(url)}" target="_blank" rel="noopener noreferrer" aria-label="Pedir ${escape(offer.label)} de ${escape(product.name)} na Logzz">Pedir ${escape(offer.label)} · pagar na entrega ${icon('arrow')}</a>` : '<button class="button primary order-button" type="button" disabled>Oferta indisponível no momento</button>';
   }
   function home() {
+    bannerController?.destroy();
+    bannerController = null;
     document.title = 'Chega — gostou, chegou, pagou.';
     currentProduct = null;
     const product = config.products[0];
-    main.innerHTML = `<section class="hero container">
-      <div class="hero-copy"><h1>Gostou.<br>Chegou.<br><span>Pagou.</span></h1><p>Encontre algo para o seu dia.<br>O pagamento? Só quando o produto<br class="desktop-break"> chegar na sua casa.</p><div class="hero-actions"><a class="button primary" href="#catalogo">Explorar a loja ${icon('arrow')}</a><a class="hero-secondary" href="#como-funciona">Entenda como funciona</a></div><div class="hero-note">${icon('check')}Sem pagamento antecipado</div></div>
-      <div class="hero-visual"><a href="#produto/${encodeURIComponent(product.id)}" class="hero-photo real-product-hero" aria-label="Conhecer ${escape(product.name)}"><img src="${escape(product.image)}" alt="${escape(product.imageAlt)}" fetchpriority="high" width="1000" height="1000"><span class="hero-image-caption">${escape(product.name)}</span></a><div class="delivery-slip">${icon('box')}<div><strong>Primeiro, chega.</strong><span>Depois, você paga na entrega.</span></div>${icon('check','slip-check')}</div><span class="image-disclaimer">Fotos e demonstração do material do produtor</span></div>
+    main.innerHTML = `<section class="store-banner container" aria-label="Destaques da loja" aria-roledescription="carrossel">
+      <h1 class="sr-only">Chega. Gostou, chegou, pagou.</h1>
+      <div class="banner-track" tabindex="0" aria-label="Banners: use as setas do teclado ou deslize">
+        <article class="banner-panel banner-welcome" data-banner-title="Conheça a Chega" role="group" aria-roledescription="slide" aria-label="1 de 2">
+          <div class="banner-copy"><span class="banner-eyebrow">BEM-VINDO À CHEGA.</span><h2>Gostou.<br>Chegou.<br><span>Pagou.</span></h2><p>Escolha com calma.<br>O pagamento é só na entrega.</p><a class="button primary" href="#catalogo">Explorar a loja ${icon('arrow')}</a><span class="banner-note">${icon('check')}Sem pagamento antecipado</span></div>
+          <div class="banner-art banner-bottle"><a href="#produto/${encodeURIComponent(product.id)}" aria-label="Conhecer ${escape(product.name)}"><img src="${escape(product.image)}" alt="${escape(product.imageAlt)}" fetchpriority="high" width="1000" height="1000"></a><div class="banner-delivery">${icon('box')}<div><strong>Primeiro, chega.</strong><span>Depois, você paga.</span></div></div></div>
+        </article>
+        <article class="banner-panel banner-feature" data-banner-title="${escape(product.name)}" role="group" aria-roledescription="slide" aria-label="2 de 2" aria-hidden="true" inert>
+          <div class="banner-copy"><span class="banner-eyebrow">EM DESTAQUE NA LOJA</span><h2>${escape(product.name)}<span>.</span></h2><p>Veja os detalhes, assista à demonstração e escolha seu kit.</p><div class="banner-price"><strong>A partir de ${money(Math.min(...product.offers.map(offer => offer.priceCents)))}</strong><span>Pagamento na entrega</span></div><a class="button primary" href="#produto/${encodeURIComponent(product.id)}">Conhecer o produto ${icon('arrow')}</a><span class="banner-note">Confira entrega e valor final na Logzz.</span></div>
+          <div class="banner-art banner-product"><img src="${escape(product.images?.[1]?.src || product.image)}" alt="${escape(product.images?.[1]?.alt || product.imageAlt)}" loading="lazy" width="1000" height="1000"><span class="banner-image-note">Material de divulgação do produtor</span></div>
+        </article>
+      </div>
+      <div class="banner-toolbar"><div class="banner-navigation"><button class="icon-button" type="button" data-banner-step="-1" aria-label="Banner anterior">${icon('left')}</button><span class="banner-count">01 / 02</span><button class="icon-button" type="button" data-banner-step="1" aria-label="Próximo banner">${icon('right')}</button></div><div class="banner-dots" role="group" aria-label="Escolher banner"><button type="button" data-banner-index="0" aria-label="Ver banner: Conheça a Chega" aria-pressed="true"><span></span></button><button type="button" data-banner-index="1" aria-label="Ver banner: ${escape(product.name)}" aria-pressed="false"><span></span></button></div><button class="banner-pause" type="button" data-banner-pause aria-pressed="false" aria-label="Pausar passagem automática dos banners">Pausar</button></div><p class="banner-status sr-only" role="status"></p>
     </section>
     <div class="service-line"><div class="container"><span>${icon('truck')}Disponibilidade conforme seu CEP</span><span>${icon('box')}Um kit por pedido</span><a href="#ajuda">${icon('chat')}Atendimento acessível</a></div></div>
     <section class="catalog-section container" id="catalogo"><div class="section-heading"><div><h2>Seu próximo achado.</h2><p>Escolha com calma. Conheça cada detalhe.</p></div><span class="catalog-status">${config.products.length} produto${config.products.length === 1 ? '' : 's'} no catálogo</span></div><div class="catalog-tools"><div class="category-tabs" role="group" aria-label="Filtrar produtos por categoria">${['Todos', ...new Set(config.products.map(product => product.category))].map(name => `<button class="category-tab ${category === name ? 'active' : ''}" type="button" data-category="${escape(name)}" aria-pressed="${category === name}">${escape(name)}</button>`).join('')}</div><span id="search-status" role="status">${query ? `Busca: ${escape(query)}` : 'Uma seleção que vai crescer com você.'}</span></div><div class="product-grid" id="product-grid">${catalogHTML()}</div><div class="catalog-pagination"><button class="button secondary" id="catalog-more" type="button" data-action="more-products" aria-controls="product-grid" hidden>Ver mais produtos ${icon('arrow')}</button></div></section>
@@ -116,6 +129,7 @@
     <section class="help-section container" id="ajuda"><div class="help-intro"><h2>Perguntas pequenas.<br>Respostas claras.</h2><p>Saiba o que esperar antes de fazer seu pedido.</p><button class="button secondary" data-action="open-chat" type="button">${icon('chat')}Abrir ajuda rápida</button><a class="text-button" data-wa="Olá! Tenho uma dúvida sobre a loja.">Conversar no WhatsApp ${icon('arrow')}</a></div><div class="faq-list">${faqList(config.faq.slice(0,4))}</div></section>`;
     renderCatalog();
     setupLinks();
+    bannerController = window.ChegaBanner?.mount($('.store-banner')) || null;
   }
   function productPage(id) {
     const product = model.findProduct(id);
@@ -178,6 +192,8 @@
     $('#chat-panel [data-action="close-chat"]').focus();
   }
   function renderRoute() {
+    bannerController?.destroy();
+    bannerController = null;
     $('#product-video-player')?.pause();
     closeChat(false);
     const hash = location.hash.slice(1) || 'inicio';
