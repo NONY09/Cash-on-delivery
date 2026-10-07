@@ -16,6 +16,7 @@
   <script defer src="auth-config.js"></script>
   <script defer src="auth.js"></script>
   <script defer src="banner.js"></script>
+  <script defer src="seasonal.js"></script>
   <script defer src="app.js"></script>
 </head>
 <body>
@@ -36,8 +37,9 @@
     <symbol id="i-left" viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></symbol>
     <symbol id="i-right" viewBox="0 0 24 24"><path d="m10 6 6 6-6 6"/></symbol>
   </svg>
-  <div class="preview-banner">Pague somente na entrega <span>·</span> Consulte a disponibilidade para seu CEP</div>
+  <div class="preview-banner"><div class="container"><p>Pague somente na entrega <span>·</span> <span class="preview-coverage">Consulte seu CEP na oferta</span></p><button type="button" class="holiday-toggle" data-holiday-toggle aria-pressed="false" aria-label="Pausar efeitos decorativos de Natal">Pausar efeitos</button></div></div>
   <header class="site-header">
+    <div class="holiday-canopy" data-holiday-scene aria-hidden="true"><img src="assets/campanhas/guirlanda.webp" alt="" width="1100" height="367" decoding="async"></div>
     <div class="header-main container">
       <a class="brand" href="#inicio" aria-label="Chega — página inicial">chega<span class="brand-dot">.</span></a>
       <form class="search" id="search-form" role="search">
@@ -56,6 +58,7 @@
   </header>
   <main id="main" tabindex="-1"></main>
   <footer class="site-footer">
+    <div class="holiday-canopy footer-canopy" data-holiday-scene aria-hidden="true"><img src="assets/campanhas/guirlanda.webp" alt="" width="1100" height="367" loading="lazy" decoding="async"></div>
     <div class="container footer-grid">
       <div><a class="brand" href="#inicio">chega<span class="brand-dot">.</span></a><p>Coisas para o seu dia.<br>Pagamento só na entrega.</p><small>Catálogo de afiliados. Pedidos no checkout da Logzz.</small></div>
       <div><h2>Por aqui</h2><a href="#catalogo">Produtos</a><a href="#como-funciona">Como funciona</a><a href="#conta">Minha conta</a></div>

@@ -24,16 +24,19 @@ Edite `products.js`. Adicione um objeto na lista `products` para cada produto. C
 Preserve o link HTTPS completo de afiliado fornecido para cada oferta, inclusive identificadores e parâmetros. Confira o domínio do parceiro. Não insira senha, segredo, chave privada ou credenciais em nenhum arquivo.
 
 ## Estado desta entrega
-- Campanha de Natal com fotografia ilustrativa identificada, texto em HTML, preço real da Resina e link para escolher o kit. Segundo banner mostra os três produtos e o pagamento na entrega. Paleta reforçada em verde profundo, vermelho e dourado; sem desconto ou prazo inventado.
+- Três banners centrados nos produtos: Resina Extreme em verde/dourado, Pente Alisador Portátil em rosa/vinho e Joelheira de Compressão em creme/verde. Composições ilustrativas identificadas, texto e preço em HTML, preço mínimo derivado das ofertas e links para as páginas reais. Sem desconto ou prazo inventado.
+- Guirlanda transparente no cabeçalho e rodapé, com espaço reservado e brilho suave. “Pausar efeitos” controla a decoração; movimento reduzido, aba oculta e cenas fora da tela mantêm o efeito estático. Banner e decoração têm controles independentes.
+- Banners empilham imagem acima do texto em até 900px; em até 420px os indicadores passam para a segunda linha. Cinco WebPs novos totalizam 241.958 bytes: duas composições 1000×1000, duas variantes móveis 600×600 e guirlanda 1100×367 com transparência.
 - Corrigido o transbordamento da foto vertical da Resina nos destaques: círculos com tamanho fixo e imagem contida, rótulos fora da moldura e cards de produto com imagem inteira em moldura quadrada.
 - Resina Extreme: fotos fornecidas, descrição baseada no rótulo e seis kits de 1 a 6 unidades.
 - Joelheira de Compressão: página própria, imagem principal ilustrativa identificada e duas fotos fornecidas na galeria; kits de 1/2/3/4/6, com preços conferidos de R$ 109,90 / 129,90 / 259,80 / 258,90 / 389,70. Medidas atribuídas ao produtor, sem promessas médicas não comprovadas.
-- Pente Alisador Portátil: duas imagens originais fornecidas, sem geração de imagem nova; kits de 1/2/4 a R$ 129,99 / 199,99 / 359,99. Cores exibidas nas imagens dependem da disponibilidade da oferta.
+- Pente Alisador Portátil: duas imagens originais fornecidas preservadas na galeria e composição ilustrativa separada para a campanha; kits de 1/2/4 a R$ 129,99 / 199,99 / 359,99. Cores exibidas nas imagens dependem da disponibilidade da oferta.
 - Categorias em círculos: Cuidados automotivos, Movimento e bem-estar e Beleza e cuidados; filtro pelo toque, indicação da seleção e opção Todos.
 - Galeria com rolagem por toque, miniaturas e navegação por teclado; vídeo do fornecedor carregado somente ao abrir a seção de demonstração.
 - Vídeo otimizado para celular, com controles, sem reprodução automática e com descrição visual adjacente. O áudio original foi preservado; legendas de fala ainda dependem de uma transcrição conferida.
 - Ofertas conferidas nos links enviados: R$ 99,99 / 124,99 / 147,00 / 197,00 / 180,00 / 210,00. Uma unidade no link enviado custa R$ 99,99, embora o texto inicial mencionasse R$ 89,99. Os links originais de afiliado estão preservados.
 - O botão “Pedir” muda para o link exato do kit escolhido e abre o checkout externo da Logzz. Não há carrinho nem seleção persistida. Dados de entrega, cobertura, custos e pagamento são confirmados lá. O carrinho antigo é removido automaticamente.
+- Conta, Auth, SMS, CAPTCHA e alterações no Supabase foram explicitamente adiados pelo usuário nesta etapa visual; a integração e seus bloqueios existentes permanecem.
 - Supabase Auth integrado: login, cadastro com confirmação de e-mail, recuperação, perfil, preferências, exportação e exclusão de conta. Cadastro e envio de e-mail ficam pausados até a configuração externa descrita abaixo. SMS permanece desativado. Não são coletados CPF ou endereço aqui.
 - Ajuda utiliza respostas cadastradas e WhatsApp +55 81 99688-1704. Não há API de IA, pixel ou analytics. O backend é usado somente na área de conta.
 - O vídeo é identificado como material do fornecedor, sem depoimentos, avaliações ou números de vendas inventados.
@@ -72,9 +75,9 @@ Imagem conceitual produzida com a ferramenta integrada de geração de imagens. 
 Prompt completo e origem registrados em `assets/IMAGE_SOURCE.txt`. Fontes URW Gothic e Nimbus Sans servidas localmente. Licenças e avisos em `assets/fonts/LICENSE.txt`.
 
 ## Verificação
-Execute `node tests/catalog.test.cjs`, `node tests/auth.test.cjs` e `node tests/banner.test.cjs` para testar o catálogo e os links sem instalar dependências. O teste usa 27 produtos: os três reais e 24 entradas sintéticas somente na memória, não na loja publicada.
+Execute `node tests/catalog.test.cjs`, `node tests/auth.test.cjs`, `node tests/banner.test.cjs` e `node tests/seasonal.test.cjs` para testar catálogo, links, conta, rotação e controle de efeitos sem instalar dependências. Os quatro testes passaram nesta entrega. O teste usa 27 produtos: os três reais e 24 entradas sintéticas somente na memória, não na loja publicada.
 
-A entrega inclui validação de sintaxe JavaScript, caminhos dos arquivos, busca/categorias com vários produtos, carregamento em lotes, links de cada kit e ausência de carrinho e bloqueio de produtos de demonstração. Capturas e testes em navegador não foram realizados neste ambiente; revise no Netlify em celular e desktop antes de abrir as vendas.
+A entrega inclui validação de sintaxe JavaScript, caminhos dos arquivos, busca/categorias com vários produtos, carregamento em lotes, links de cada kit e ausência de carrinho e bloqueio de produtos de demonstração. A revisão desta etapa foi de código e assets, incluindo os ajustes de empilhamento a 900px e controles a 420px. Capturas e testes em navegador não foram realizados neste ambiente; revise no Netlify em celular e desktop antes de abrir as vendas.
 
 Os testes SQL em `supabase/sql/chega_account_security_test.sql` executaram em transação e rollback, comprovando isolamento, atualização própria, bloqueio de outro dono, imutabilidade do consentimento, acesso anônimo negado, bloqueio de e-mail não confirmado e sessão revogada, trava de cadastro e exclusão em cascata. Nenhum e-mail de teste foi enviado. Entrega de e-mails, CAPTCHA, SMS, UI no navegador e callback de domínio real continuam pendentes de configuração/verificação.
 
@@ -84,4 +87,4 @@ Cloudflare → Turnstile → Add widget: nome `Chega`, hostname `cchega.netlify.
 
 Confirmação por e-mail exige SMTP próprio: remetente autorizado/verificado, host, porta, usuário e senha do provedor configurados no painel Supabase. Confirmação por telefone exige provedor SMS compatível (por exemplo Twilio, Vonage ou MessageBird), com custos externos e limites de envio. Não habilitar SMS nem contratar serviço pago automaticamente. Se CMS significar gerenciamento de conteúdo, trata-se de um painel de produtos separado: o catálogo atual é editado em `products.js`, e não há CMS administrativo implantado.
 
-O banner usa `banner.js`, sem bibliotecas novas, imagens adicionais ou chamadas ao Supabase. Giro a cada 6,5 segundos, pausa, navegação manual, deslize nativo, respeito a movimento reduzido e encerramento dos temporizadores ao sair da página.
+O banner usa `banner.js`, sem bibliotecas novas ou chamadas ao Supabase. Giro a cada 6,5 segundos, pausa, navegação manual, deslize nativo, respeito a movimento reduzido e encerramento dos temporizadores ao sair da página. `seasonal.js` controla apenas o brilho da guirlanda: pausa manual, visibilidade da aba, IntersectionObserver e movimento reduzido; não grava preferências nem dados de cliente. As imagens novas e seus prompts completos estão documentados em `assets/campanhas/SOURCE.md`.

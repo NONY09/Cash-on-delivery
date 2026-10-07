@@ -431,39 +431,42 @@ img{display:block;max-width:100%;height:auto}
 
 .account-captcha{margin-top:24px;max-width:100%;min-height:65px}
 
-/* Christmas campaign and store selection: real imagery, clear offers, no urgency claims. */
+/* The products lead; the season lives in photography, material and quiet light. */
 .store-banner{margin-top:24px;margin-bottom:28px;position:relative}
-.banner-track{display:flex;align-items:stretch;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:16px;background:var(--forest);overscroll-behavior-x:contain;touch-action:pan-x pan-y}
+.banner-track{display:flex;align-items:stretch;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:16px;background:var(--forest-deep);overscroll-behavior-x:contain;touch-action:pan-x pan-y}
 .banner-track::-webkit-scrollbar{display:none}
-.banner-panel{flex:0 0 100%;min-width:0;scroll-snap-align:start;display:grid;grid-template-columns:42% 58%;align-items:center;min-height:500px}
-.banner-christmas{background:var(--forest);color:var(--on-forest)}
-.banner-copy{min-width:0;padding:40px;max-width:490px}
-.banner-copy h2{font-size:clamp(42px,4.6vw,60px);line-height:1.06;letter-spacing:-.03em}
-.banner-christmas h2{max-width:12ch}
+.banner-panel{flex:0 0 100%;min-width:0;scroll-snap-align:start;display:grid;grid-template-columns:43% 57%;align-items:center;min-height:520px;background:var(--forest-deep);color:var(--on-forest)}
+.banner-copy{min-width:0;padding:42px 44px;max-width:510px}
+.banner-copy h2{font-size:clamp(54px,6vw,80px);line-height:1.04;letter-spacing:-.03em;max-width:10ch}
 .banner-copy h2 span{color:var(--gold)}
-.banner-copy>p{font-size:17px;line-height:1.55;margin-top:18px;max-width:32ch;color:var(--muted-forest)}
-.banner-copy>.button{margin-top:22px}
-.banner-note{display:flex;align-items:center;gap:8px;font-size:12px;margin-top:16px;color:var(--muted-forest)}
+.banner-copy>p{font-size:17px;line-height:1.6;margin-top:22px;max-width:33ch;color:var(--muted-forest)}
+.banner-copy>.button{margin-top:24px;background:var(--gold);color:var(--forest-deep)}
+.banner-copy>.button:hover{background:var(--on-forest)}
+.banner-note{display:flex;align-items:center;gap:8px;font-size:12px;margin-top:18px;color:var(--muted-forest)}
 .banner-note .icon{width:18px;height:18px;color:var(--gold)}
-.banner-price{margin-top:18px;display:flex;flex-direction:column;gap:3px}
-.banner-price strong{font-size:22px;font-variant-numeric:tabular-nums;color:var(--gold)}
+.banner-price{margin-top:22px;display:flex;align-items:baseline;flex-wrap:wrap;gap:7px 12px}
+.banner-price strong{font-size:30px;font-variant-numeric:tabular-nums;color:var(--gold);line-height:1.2}
 .banner-price span{font-size:13px;color:var(--muted-forest)}
-.banner-christmas .button.primary{background:var(--gold);color:var(--forest-deep)}
-.banner-christmas .button.primary:hover{background:var(--on-forest)}
-.banner-christmas :focus-visible{outline-color:var(--gold)}
-.campaign-art{position:relative;min-width:0;margin:0;align-self:stretch;display:grid;align-content:center;background:var(--forest-deep)}
-.campaign-art picture{display:block;width:100%;min-width:0}
-.campaign-art img{width:100%;height:auto;aspect-ratio:3/2;object-fit:contain}
-.campaign-art figcaption{position:absolute;right:14px;bottom:14px;padding:6px 10px;background:var(--forest-deep);color:var(--on-forest);font-size:10px;border-radius:6px}
-.banner-welcome{background:var(--peach);color:var(--ink)}
-.banner-welcome h2{font-size:clamp(48px,5.2vw,70px)}
-.banner-welcome h2 span{color:var(--coral)}
-.banner-welcome .banner-copy>p,.banner-welcome .banner-note{color:var(--muted)}
-.banner-welcome .banner-note .icon{color:var(--coral)}
-.banner-selection{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding:36px;align-items:center;min-width:0}
-.banner-product-link{display:flex;flex-direction:column;min-width:0;gap:12px;text-align:center;font-size:13px;line-height:1.4;font-weight:700}
-.banner-product-link img{display:block;width:100%;height:170px;min-width:0;object-fit:contain;border-radius:12px;background:var(--paper);padding:12px}
-.banner-selection>p{color:var(--coral);font-family:var(--display);font-size:26px;line-height:1.25;letter-spacing:-.02em;text-wrap:balance}
+.banner-resina :focus-visible{outline-color:var(--gold)}
+.campaign-art{position:relative;min-width:0;margin:0;align-self:stretch;display:grid;align-content:center;padding:28px;background:var(--forest-deep)}
+.campaign-art picture{display:block;width:100%;max-width:520px;margin-inline:auto;min-width:0}
+.campaign-art img{width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:12px}
+.campaign-art figcaption{position:absolute;right:18px;bottom:14px;font-size:10px;color:var(--muted-forest)}
+.banner-beauty{background:#f6e2d8;color:var(--ink)}
+.banner-beauty .campaign-art{background:#f6e2d8}
+.banner-beauty h2{font-size:clamp(44px,4.8vw,62px);max-width:12ch}
+.banner-beauty h2 span{color:#8c2437}
+.banner-beauty .banner-copy>p,.banner-beauty .banner-note,.banner-beauty .banner-price span,.banner-beauty figcaption{color:#6b4f4d}
+.banner-beauty .banner-note .icon,.banner-beauty .banner-price strong{color:#8c2437}
+.banner-beauty .banner-copy>.button{background:#8c2437;color:white}
+.banner-beauty .banner-copy>.button:hover{background:#6f1929}
+.banner-movement{background:var(--cream);color:var(--ink)}
+.banner-movement .campaign-art{background:var(--cream)}
+.banner-movement h2{font-size:clamp(40px,4.3vw,54px);max-width:14ch}
+.banner-movement h2 span,.banner-movement .banner-note .icon,.banner-movement .banner-price strong{color:var(--forest)}
+.banner-movement .banner-copy>p,.banner-movement .banner-note,.banner-movement .banner-price span,.banner-movement figcaption{color:var(--muted)}
+.banner-movement .banner-copy>.button{background:var(--forest);color:var(--on-forest)}
+.banner-movement .banner-copy>.button:hover{background:var(--forest-deep)}
 .banner-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 4px 0}
 .banner-navigation{display:flex;align-items:center;gap:6px}
 .banner-count{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:52px;text-align:center}
@@ -472,8 +475,19 @@ img{display:block;max-width:100%;height:auto}
 .banner-dots button span{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .18s ease}
 .banner-dots button[aria-pressed="true"] span{background:var(--coral);outline:2px solid var(--coral);outline-offset:3px}
 .banner-pause{background:none;border:0;font-size:12px;min-height:44px;min-width:80px;padding:8px;text-decoration:underline;text-underline-offset:4px;color:var(--muted)}
-.preview-banner{background:var(--forest);color:var(--on-forest)}
-.preview-banner span{color:var(--gold)}
+.preview-banner{background:var(--forest-deep);color:var(--on-forest);padding:0}
+.preview-banner>.container{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:44px}
+.preview-banner p{color:inherit;font-size:12px}
+.preview-banner p span{margin:0 8px;color:var(--gold)}
+.holiday-toggle{font-size:11px;min-height:44px;padding:8px 0;border:0;background:none;color:var(--on-forest);text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
+.holiday-toggle:focus-visible{outline-color:var(--gold)}
+.holiday-toggle:disabled{opacity:.75;cursor:default;text-decoration:none}
+.holiday-canopy{position:relative;height:104px;overflow:hidden;pointer-events:none}
+.holiday-canopy img{position:absolute;top:-3px;left:50%;width:min(780px,95%);max-width:none;height:auto;transform:translateX(-50%);animation:holiday-light 5.5s ease-in-out infinite alternate;animation-play-state:paused;opacity:1}
+.holiday-canopy.holiday-motion img{animation-play-state:running}
+@keyframes holiday-light{from{filter:brightness(.94)}to{filter:brightness(1.14)}}
+.site-header{border-bottom:1px solid var(--line)}
+.header-main{min-height:84px}
 .brand-dot,.nav-promise{color:var(--coral)}
 .service-line{background:var(--forest);color:var(--on-forest)}
 .service-line .icon{color:var(--gold)}
@@ -481,15 +495,19 @@ img{display:block;max-width:100%;height:auto}
 .card-price>span{color:var(--forest)}
 .button.secondary.product-card-cta{border-color:var(--coral);color:var(--coral)}
 .button.secondary.product-card-cta:hover{background:var(--peach)}
-.site-footer{background:var(--forest-deep);color:var(--on-forest)}
+.site-footer{position:relative;background:var(--forest-deep);color:var(--on-forest);padding-top:100px}
 .site-footer p,.site-footer small,.site-footer .footer-bottom{color:var(--muted-forest)}
 .site-footer .brand-dot{color:var(--gold)}
 .site-footer .footer-bottom{border-color:var(--forest)}
 .site-footer :focus-visible{outline-color:var(--gold)}
-@media(max-width:1050px){.banner-copy{padding:32px}.banner-copy h2{font-size:46px}.banner-welcome h2{font-size:54px}.banner-selection{padding:28px;gap:14px}.banner-product-link img{height:150px}}
-@media(max-width:760px){.store-banner{margin-top:16px;margin-bottom:22px}.banner-panel{grid-template-columns:1fr;grid-template-rows:auto auto;align-content:start;min-height:0}.banner-copy{padding:28px 24px;max-width:none}.banner-copy h2{font-size:36px;max-width:none;line-height:1.08}.banner-welcome h2{font-size:42px}.banner-copy>p{font-size:15px;margin-top:14px;max-width:35ch}.banner-copy>.button{margin-top:18px;padding-inline:18px}.banner-note{margin-top:14px;font-size:11px}.banner-price{margin-top:14px}.banner-price strong{font-size:20px}.campaign-art{align-self:start}.campaign-art figcaption{right:10px;bottom:10px;font-size:9px}.banner-selection{padding:0 24px 28px;gap:14px}.banner-product-link img{height:110px;padding:8px}.banner-product-link{font-size:11px;gap:8px}.banner-selection>p{font-size:22px}.banner-toolbar{gap:8px;padding-top:8px}.banner-navigation{gap:0}.banner-dots{gap:0}.banner-pause{min-width:72px}}
-@media(max-width:360px){.banner-copy{padding:24px 20px}.banner-copy h2{font-size:32px}.banner-welcome h2{font-size:38px}.banner-selection{padding-inline:20px}.banner-count{min-width:44px}}
-@media(prefers-reduced-motion:reduce){.banner-dots button span{transition:none}.banner-track{scroll-behavior:auto}}
+.footer-canopy{position:absolute;top:0;left:50%;width:min(580px,90%);height:76px;transform:translateX(-50%)}
+.footer-canopy img{width:100%}
+@media(max-width:1050px){.banner-copy{padding:32px}.banner-copy h2{font-size:64px}.banner-beauty h2{font-size:48px}.banner-movement h2{font-size:44px}.campaign-art{padding:24px}.holiday-canopy{height:90px}.footer-canopy{height:76px}}
+@media(max-width:900px){.banner-panel{display:flex;flex-direction:column;align-items:stretch;min-height:0}.banner-copy{order:2;padding:28px 32px;max-width:none}.banner-copy h2{font-size:48px;max-width:none}.banner-beauty h2,.banner-movement h2{font-size:42px}.campaign-art{order:1;padding:24px 24px 30px}.campaign-art picture{width:min(100%,360px)}}
+@media(max-width:760px){.store-banner{margin-top:18px;margin-bottom:22px}.banner-panel{display:flex;flex-direction:column;align-items:stretch;min-height:0}.banner-copy{order:2;padding:22px 24px 28px;max-width:none}.banner-copy h2{font-size:38px;max-width:none;line-height:1.08}.banner-beauty h2,.banner-movement h2{font-size:32px}.banner-copy>p{font-size:15px;margin-top:12px;max-width:35ch}.banner-copy>.button{margin-top:18px;width:100%;padding-inline:18px}.banner-note{margin-top:14px;font-size:11px}.banner-price{margin-top:16px;gap:8px}.banner-price strong{font-size:26px}.campaign-art{order:1;align-self:stretch;padding:18px 18px 28px}.campaign-art picture{width:min(100%,300px)}.campaign-art figcaption{right:18px;bottom:8px;font-size:9px}.banner-toolbar{gap:6px;padding-top:8px}.banner-navigation{gap:0}.banner-dots{gap:0}.banner-dots button{min-width:36px}.banner-pause{min-width:68px}.preview-banner>.container{width:calc(100% - 32px);gap:10px;min-height:48px}.preview-banner p{font-size:10px;text-align:left;max-width:210px}.preview-banner p span{display:none}.preview-banner p .preview-coverage{display:none}.holiday-toggle{font-size:10px}.holiday-canopy{height:64px}.header-main{min-height:84px}.site-footer{padding-top:94px}.footer-canopy{height:60px}}
+@media(max-width:360px){.banner-copy{padding:20px}.banner-copy h2{font-size:34px}.banner-beauty h2,.banner-movement h2{font-size:29px}.campaign-art{padding:14px 14px 26px}.banner-count{min-width:40px}.banner-dots button{min-width:32px}.banner-pause{min-width:64px}.holiday-canopy{height:58px}}
+@media(max-width:420px){.banner-toolbar{flex-wrap:wrap}.banner-dots{order:3;flex-basis:100%;justify-content:center}.banner-dots button{min-width:44px}}
+@media(prefers-reduced-motion:reduce){.banner-dots button span{transition:none}.banner-track{scroll-behavior:auto}.holiday-canopy img{animation:none;filter:none}}
 
 .product-image-origin{font-size:11px;line-height:1.4;margin-top:9px;color:var(--muted)}
 .gallery-thumbnails{flex-wrap:wrap}

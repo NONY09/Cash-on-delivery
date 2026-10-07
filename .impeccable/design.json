@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-07T01:13:28Z",
+  "generatedAt": "2026-10-07T13:07:55.664885Z",
   "title": "Design System: Chega",
   "extensions": {
     "colorMeta": {
@@ -129,12 +129,138 @@
           "oklch(83.57% 0.0000 0.00)",
           "oklch(95.00% 0.0000 0.00)"
         ]
+      },
+      "forest": {
+        "role": "secondary",
+        "displayName": "Forest",
+        "tonalRamp": [
+          "oklch(15.00% 0.0591 176.68)",
+          "oklch(26.43% 0.0591 176.68)",
+          "oklch(37.86% 0.0591 176.68)",
+          "oklch(49.29% 0.0591 176.68)",
+          "oklch(60.71% 0.0591 176.68)",
+          "oklch(72.14% 0.0591 176.68)",
+          "oklch(83.57% 0.0591 176.68)",
+          "oklch(95.00% 0.0591 176.68)"
+        ]
+      },
+      "forest-deep": {
+        "role": "secondary",
+        "displayName": "Forest Deep",
+        "tonalRamp": [
+          "oklch(15.00% 0.0504 176.78)",
+          "oklch(26.43% 0.0504 176.78)",
+          "oklch(37.86% 0.0504 176.78)",
+          "oklch(49.29% 0.0504 176.78)",
+          "oklch(60.71% 0.0504 176.78)",
+          "oklch(72.14% 0.0504 176.78)",
+          "oklch(83.57% 0.0504 176.78)",
+          "oklch(95.00% 0.0504 176.78)"
+        ]
+      },
+      "gold": {
+        "role": "secondary",
+        "displayName": "Gold",
+        "tonalRamp": [
+          "oklch(15.00% 0.1173 83.88)",
+          "oklch(26.43% 0.1173 83.88)",
+          "oklch(37.86% 0.1173 83.88)",
+          "oklch(49.29% 0.1173 83.88)",
+          "oklch(60.71% 0.1173 83.88)",
+          "oklch(72.14% 0.1173 83.88)",
+          "oklch(83.57% 0.1173 83.88)",
+          "oklch(95.00% 0.1173 83.88)"
+        ]
+      },
+      "on-forest": {
+        "role": "neutral",
+        "displayName": "On Forest",
+        "tonalRamp": [
+          "oklch(15.00% 0.0308 86.46)",
+          "oklch(26.43% 0.0308 86.46)",
+          "oklch(37.86% 0.0308 86.46)",
+          "oklch(49.29% 0.0308 86.46)",
+          "oklch(60.71% 0.0308 86.46)",
+          "oklch(72.14% 0.0308 86.46)",
+          "oklch(83.57% 0.0308 86.46)",
+          "oklch(95.00% 0.0308 86.46)"
+        ]
+      },
+      "muted-forest": {
+        "role": "neutral",
+        "displayName": "Muted Forest",
+        "tonalRamp": [
+          "oklch(15.00% 0.0227 141.23)",
+          "oklch(26.43% 0.0227 141.23)",
+          "oklch(37.86% 0.0227 141.23)",
+          "oklch(49.29% 0.0227 141.23)",
+          "oklch(60.71% 0.0227 141.23)",
+          "oklch(72.14% 0.0227 141.23)",
+          "oklch(83.57% 0.0227 141.23)",
+          "oklch(95.00% 0.0227 141.23)"
+        ]
+      },
+      "rose": {
+        "role": "secondary",
+        "displayName": "Rose",
+        "tonalRamp": [
+          "oklch(15.00% 0.0259 48.43)",
+          "oklch(26.43% 0.0259 48.43)",
+          "oklch(37.86% 0.0259 48.43)",
+          "oklch(49.29% 0.0259 48.43)",
+          "oklch(60.71% 0.0259 48.43)",
+          "oklch(72.14% 0.0259 48.43)",
+          "oklch(83.57% 0.0259 48.43)",
+          "oklch(95.00% 0.0259 48.43)"
+        ]
+      },
+      "bordeaux": {
+        "role": "secondary",
+        "displayName": "Bordeaux",
+        "tonalRamp": [
+          "oklch(15.00% 0.1386 14.93)",
+          "oklch(26.43% 0.1386 14.93)",
+          "oklch(37.86% 0.1386 14.93)",
+          "oklch(49.29% 0.1386 14.93)",
+          "oklch(60.71% 0.1386 14.93)",
+          "oklch(72.14% 0.1386 14.93)",
+          "oklch(83.57% 0.1386 14.93)",
+          "oklch(95.00% 0.1386 14.93)"
+        ]
+      },
+      "bordeaux-hover": {
+        "role": "secondary",
+        "displayName": "Bordeaux Hover",
+        "tonalRamp": [
+          "oklch(15.00% 0.1190 15.10)",
+          "oklch(26.43% 0.1190 15.10)",
+          "oklch(37.86% 0.1190 15.10)",
+          "oklch(49.29% 0.1190 15.10)",
+          "oklch(60.71% 0.1190 15.10)",
+          "oklch(72.14% 0.1190 15.10)",
+          "oklch(83.57% 0.1190 15.10)",
+          "oklch(95.00% 0.1190 15.10)"
+        ]
+      },
+      "muted-rose": {
+        "role": "neutral",
+        "displayName": "Muted Rose",
+        "tonalRamp": [
+          "oklch(15.00% 0.0381 23.33)",
+          "oklch(26.43% 0.0381 23.33)",
+          "oklch(37.86% 0.0381 23.33)",
+          "oklch(49.29% 0.0381 23.33)",
+          "oklch(60.71% 0.0381 23.33)",
+          "oklch(72.14% 0.0381 23.33)",
+          "oklch(83.57% 0.0381 23.33)",
+          "oklch(95.00% 0.0381 23.33)"
+        ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Hero headline; responsive overrides remain in source."
+        "purpose": "Resina campaign heading; product-specific and responsive overrides remain in source."
       },
       "headline": {
         "displayName": "Headline",
@@ -185,6 +311,16 @@
         "name": "reduced-motion",
         "value": "@media(prefers-reduced-motion:reduce)",
         "purpose": "Disable animations/transitions and use auto scrolling."
+      },
+      {
+        "name": "banner-rotation",
+        "value": "6500ms",
+        "purpose": "Visible, unfocused and unhovered home carousel only; manual navigation stops it and route cleanup destroys timers."
+      },
+      {
+        "name": "holiday-light",
+        "value": "holiday-light 5.5s ease-in-out infinite alternate; brightness(.94) to brightness(1.14)",
+        "purpose": "Reserved decorative garlands only; seasonal.js gates animation by scene/tab visibility, manual pause and reduced motion. Static without IntersectionObserver."
       }
     ],
     "breakpoints": [
@@ -203,15 +339,24 @@
       {
         "name": "narrow-max",
         "value": "360px"
+      },
+      {
+        "name": "campaign-stack-max",
+        "value": "900px"
+      },
+      {
+        "name": "banner-toolbar-wrap-max",
+        "value": "420px"
       }
     ],
     "focus": {
       "outline": "3px solid var(--coral)",
-      "outlineOffset": "4px"
+      "outlineOffset": "4px",
+      "exceptions": "Gold on Resina campaign, seasonal toggle and footer forest surfaces."
     },
     "provenance": {
-      "source": "styles.css",
-      "method": "Source inspection; browser QA unavailable.",
+      "source": "styles.css, app.js, index.html, banner.js, seasonal.js and assets/campanhas/SOURCE.md",
+      "method": "Source and asset inspection only; no browser QA, screenshots or whole-surface visual approval.",
       "tonalRamps": "Synthesized OKLCH ramps for exploration; not implementation tokens."
     }
   },
@@ -221,7 +366,7 @@
       "kind": "button",
       "refersTo": "button-primary",
       "description": "Purchase and other primary actions.",
-      "html": "<button class=\"ds-button ds-primary\">Adicionar ao carrinho</button>",
+      "html": "<button class=\"ds-button ds-primary\">Pedir o kit · pagar na entrega</button>",
       "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;padding:15px 24px;font-family:var(--body);font-weight:700;font-size:15px;line-height:1.2;border:1px solid transparent;border-radius:10px;cursor:pointer;transition:background .18s ease,color .18s ease}.ds-button:focus-visible{outline:3px solid var(--coral);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-primary{background:var(--coral);color:white}.ds-primary:hover{background:var(--coral-hover)}.ds-primary:disabled,.ds-primary:disabled:hover{background:#ece5de;color:#76645c;cursor:not-allowed}"
     },
     {
@@ -229,7 +374,7 @@
       "kind": "button",
       "refersTo": "button-secondary",
       "description": "Supporting actions with a warm outline.",
-      "html": "<button class=\"ds-button ds-secondary\">Continuar comprando</button>",
+      "html": "<button class=\"ds-button ds-secondary\">Voltar à loja</button>",
       "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;padding:15px 24px;font-family:var(--body);font-weight:700;font-size:15px;line-height:1.2;border:1px solid transparent;border-radius:10px;cursor:pointer;transition:background .18s ease,color .18s ease}.ds-button:focus-visible{outline:3px solid var(--coral);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-secondary{background:transparent;border-color:var(--line);color:var(--ink)}.ds-secondary:hover{background:var(--cream)}"
     },
     {
@@ -251,17 +396,17 @@
       "name": "Category control",
       "kind": "chip",
       "refersTo": "category-active",
-      "description": "Ink marks the selected catalog category.",
-      "html": "<div class=\"ds-categories\"><button class=\"ds-category ds-selected\" aria-pressed=\"true\">Todos</button><button class=\"ds-category\" aria-pressed=\"false\">Casa</button></div>",
-      "css": ".ds-categories{display:flex;gap:8px;flex-wrap:wrap}.ds-category{font-family:var(--body);font-size:14px;min-height:44px;padding:10px 16px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--ink);cursor:pointer}.ds-category:hover{background:var(--cream)}.ds-category.ds-selected,.ds-category.ds-selected:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}.ds-category:focus-visible{outline:3px solid var(--coral);outline-offset:4px}"
+      "description": "Circular highlights with a coral selection ring and separate label; preview uses the existing bag icon.",
+      "html": "<button class=\"ds-category\" aria-pressed=\"true\"><span class=\"ds-photo\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 7h14l1 14H4L5 7Z\"/><path d=\"M8 8V6a4 4 0 0 1 8 0v2\"/></svg></span><span class=\"ds-name\">Todos</span></button>",
+      "css": ".ds-category{display:flex;flex-direction:column;align-items:center;gap:12px;flex:0 0 112px;min-height:142px;border:0;border-radius:10px;padding:0;background:none;text-align:center;font-family:var(--body);font-size:13px;line-height:1.4;color:var(--ink);cursor:pointer}.ds-photo{display:grid;place-items:center;width:94px;height:94px;flex:none;overflow:hidden;padding:4px;border:2px solid transparent;border-radius:50%;background:var(--cream);transition:border-color .18s ease}.ds-photo svg{width:34px;height:34px;fill:none;stroke:var(--muted);stroke-width:1.65}.ds-category:hover .ds-photo{border-color:var(--line)}.ds-category[aria-pressed=\"true\"] .ds-photo{border-color:var(--coral)}.ds-category[aria-pressed=\"true\"] .ds-name{color:var(--coral);font-weight:700}.ds-category[aria-pressed=\"true\"] svg{stroke:var(--coral)}.ds-category:focus-visible{outline:3px solid var(--coral);outline-offset:4px}@media(max-width:760px){.ds-category{flex-basis:96px;min-height:124px;font-size:12px;gap:10px}.ds-photo{width:80px;height:80px}}@media(prefers-reduced-motion:reduce){.ds-photo{transition:none}}"
     },
     {
       "name": "Product card frame",
       "kind": "card",
       "refersTo": "product-image",
       "description": "Image frame and unboxed product information; preview intentionally omits product photography.",
-      "html": "<article class=\"ds-card\"><a class=\"ds-card-image\" href=\"#produto\" aria-label=\"Ver produto\"><span class=\"ds-tag\">Exemplo demonstrativo</span></a><div class=\"ds-card-body\"><div><span class=\"ds-label\">Casa</span><h3>Produto de exemplo</h3><p>Informações do produto</p></div><div class=\"ds-price\"><strong>R$ 00,00</strong><small>Preço demonstrativo</small></div></div></article>",
-      "css": ".ds-card{max-width:540px;font-family:var(--body);color:var(--ink)}.ds-card-image{display:block;position:relative;aspect-ratio:1.22;background:var(--peach);border-radius:16px;overflow:hidden}.ds-card-image:focus-visible{outline:3px solid var(--coral);outline-offset:4px}.ds-tag{position:absolute;top:18px;left:18px;font-size:12px;background:var(--paper);padding:7px 10px;border-radius:6px}.ds-card-body{display:flex;justify-content:space-between;gap:20px;padding-top:20px}.ds-label{font-size:12px;color:var(--muted)}.ds-card h3{font-size:21px;line-height:1.15;margin:6px 0 0;font-weight:700}.ds-card p{font-size:14px;color:var(--muted);margin:7px 0 0}.ds-price{text-align:right;flex-shrink:0;font-variant-numeric:tabular-nums}.ds-price strong{display:block;font-size:22px;line-height:1.2;margin-top:22px}.ds-price small{display:block;font-size:12px;color:var(--muted);margin-top:7px}"
+      "html": "<article class=\"ds-card\"><a class=\"ds-card-image\" href=\"#produto\" aria-label=\"Ver produto\"><span class=\"ds-tag\">Exemplo demonstrativo</span></a><div class=\"ds-card-body\"><div><span class=\"ds-label\">Categoria</span><h3>Produto de exemplo</h3><p>Informações do produto</p></div><div class=\"ds-price\"><strong>R$ 00,00</strong><small>Preço demonstrativo</small></div><a class=\"ds-card-cta\" href=\"#produto\">Escolher kit</a></div></article>",
+      "css": ".ds-card{max-width:540px;min-width:0;display:flex;flex-direction:column;font-family:var(--body);color:var(--ink)}.ds-card-image{display:block;position:relative;aspect-ratio:1;background:var(--peach);border-radius:16px;overflow:hidden}.ds-card-image:focus-visible,.ds-card-cta:focus-visible{outline:3px solid var(--coral);outline-offset:4px}.ds-tag{position:absolute;top:18px;left:18px;font-size:12px;background:var(--forest);color:var(--on-forest);padding:7px 10px;border-radius:6px}.ds-card-body{display:flex;flex-direction:column;gap:18px;padding-top:22px;flex:1}.ds-label{font-size:12px;color:var(--muted)}.ds-card h3{font-size:21px;line-height:1.15;margin:6px 0 0;font-weight:700}.ds-card p{font-size:14px;color:var(--muted);margin:7px 0 0}.ds-price{display:flex;flex-direction:column;font-variant-numeric:tabular-nums}.ds-price strong{font-size:22px;line-height:1.2;color:var(--forest)}.ds-price small{font-size:12px;color:var(--muted);margin-top:7px}.ds-card-cta{display:flex;justify-content:center;align-items:center;min-height:52px;padding:15px 24px;border:1px solid var(--coral);border-radius:10px;color:var(--coral);font-weight:700;font-size:15px;text-decoration:none;transition:background .18s ease,color .18s ease}.ds-card-cta:hover{background:var(--peach)}@media(prefers-reduced-motion:reduce){.ds-card-cta{transition:none}}"
     },
     {
       "name": "Payment note",
@@ -270,11 +415,35 @@
       "description": "Quiet explanation of the payment mechanism alongside the offer.",
       "html": "<div class=\"ds-payment\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M3 10h18M7 15h4\"/></svg><div><strong>Pagamento na entrega</strong><span>Confira as condições da oferta.</span></div></div>",
       "css": ".ds-payment{display:flex;gap:14px;align-items:center;padding:17px;border-radius:10px;background:var(--cream);font-family:var(--body);color:var(--ink)}.ds-payment svg{width:25px;height:25px;fill:none;stroke:var(--coral);stroke-width:1.65;stroke-linecap:round;flex-shrink:0}.ds-payment strong{display:block;font-size:14px}.ds-payment span{display:block;font-size:12px;color:var(--muted);margin-top:4px}"
+    },
+    {
+      "name": "Resina campaign action",
+      "kind": "button",
+      "refersTo": "campaign-resina-button",
+      "description": "Product-specific campaign action leading to the product page.",
+      "html": "<a class=\"ds-campaign-action\" href=\"#produto\">Conhecer o produto</a>",
+      "css": ".ds-campaign-action{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:15px 24px;border:1px solid transparent;border-radius:10px;font-family:var(--body);font-size:15px;font-weight:700;line-height:1.2;text-decoration:none;background:var(--gold);color:var(--forest-deep);transition:background .18s ease,color .18s ease}.ds-campaign-action:hover{background:var(--on-forest)}.ds-campaign-action:focus-visible{outline:3px solid var(--gold);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-campaign-action{transition:none}}"
+    },
+    {
+      "name": "Pente campaign action",
+      "kind": "button",
+      "refersTo": "campaign-beauty-button",
+      "description": "Product-specific campaign action leading to the product page.",
+      "html": "<a class=\"ds-campaign-action\" href=\"#produto\">Conhecer o produto</a>",
+      "css": ".ds-campaign-action{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:15px 24px;border:1px solid transparent;border-radius:10px;font-family:var(--body);font-size:15px;font-weight:700;line-height:1.2;text-decoration:none;background:#8c2437;color:white;transition:background .18s ease,color .18s ease}.ds-campaign-action:hover{background:#6f1929}.ds-campaign-action:focus-visible{outline:3px solid var(--coral);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-campaign-action{transition:none}}"
+    },
+    {
+      "name": "Joelheira campaign action",
+      "kind": "button",
+      "refersTo": "campaign-movement-button",
+      "description": "Product-specific campaign action leading to the product page.",
+      "html": "<a class=\"ds-campaign-action\" href=\"#produto\">Conhecer o produto</a>",
+      "css": ".ds-campaign-action{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:15px 24px;border:1px solid transparent;border-radius:10px;font-family:var(--body);font-size:15px;font-weight:700;line-height:1.2;text-decoration:none;background:var(--forest);color:var(--on-forest);transition:background .18s ease,color .18s ease}.ds-campaign-action:hover{background:var(--forest-deep)}.ds-campaign-action:focus-visible{outline:3px solid var(--coral);outline-offset:4px}@media(prefers-reduced-motion:reduce){.ds-campaign-action{transition:none}}"
     }
   ],
   "narrative": {
-    "northStar": "Warm everyday commerce",
-    "overview": "Bright paper surfaces, warm neutrals and clear editorial type make browsing feel approachable. Coral marks purchase actions and selected details; practical information stays readable and direct. Chega is a provisional identity.",
+    "northStar": "A warm, festive everyday store",
+    "overview": "Ronaldo approved a stronger store-wide palette and a Christmas campaign on 7 October 2026. Warm paper and clear editorial type retain Chega’s identity. Forest green anchors the announcement strip, service line, prices and footer; bright red marks purchase actions and selected categories. Campaign surfaces add forest and gold, rose and bordeaux, or cream and green according to the product. Product facts and checkout behavior are preserved.\n\nThe season is expressed through product photography, warm materials and transparent evergreen decoration. Light changes gently within reserved header and footer space; the visitor can pause it and reduced-motion preference keeps it static. The homepage composition is documented in the store surface brief.",
     "keyCharacteristics": [
       "Warm paper and cream surfaces.",
       "Bold display type paired with a plain sans-serif body.",
