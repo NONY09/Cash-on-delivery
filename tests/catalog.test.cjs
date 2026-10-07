@@ -18,9 +18,10 @@ const get=s=>{
 const document={querySelector:get,querySelectorAll:()=>[],getElementById:id=>get('#'+id),body:new Element(),addEventListener:(k,f)=>docEvents[k]=f};
 const window={addEventListener:(k,f)=>winEvents[k]=f,matchMedia:()=>({matches:true}),scrollTo(){}};
 const ctx={window,document,location:{hash:'#catalogo'},localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v),removeItem:k=>storage.delete(k)},requestAnimationFrame:f=>f(),setTimeout:()=>0,clearTimeout(){},Intl,Date,URL};
-vm.createContext(ctx);vm.runInContext(sources[0],ctx);const config=window.CHEGA_CONFIG,real=config.products[0];
+vm.createContext(ctx);vm.runInContext(sources[0],ctx);const config=window.CHEGA_CONFIG,real=config.products[0],knee=config.products[1];
+assert.equal(config.products.length,2);assert.equal(knee.id,'joelheira-de-compressao');
 // Fixture-only products exercise catalog growth, categories, accents and HTML escaping.
-for(let i=1;i<=24;i++)config.products.push({...real,id:'test-'+i,name:i===1?'Organização & <limpeza>':'Produto '+i,category:i%2?'Casa':'Auto',imageAlt:'Imagem do produto de teste',summary:'Descrição de teste',video:null,images:undefined,details:undefined,faq:undefined});
+for(let i=1;i<=23;i++)config.products.push({...real,id:'test-'+i,name:i===1?'Organização & <limpeza>':'Produto '+i,category:i%2?'Casa':'Auto',imageAlt:'Imagem do produto de teste',summary:'Descrição de teste',video:null,images:undefined,details:undefined,faq:undefined});
 vm.runInContext(sources[1],ctx);vm.runInContext(sources[2],ctx);
 assert.equal(storage.has('chega-cart-v1'),false);assert.equal(storage.get('unrelated'),'keep');
 assert(!staticHTML.includes('cart-dialog'));assert(!staticHTML.includes('cart-trigger'));
@@ -48,7 +49,19 @@ assert.equal(checkout(real.id,'invalid'),null);assert.equal(checkout('invalid',r
 config.demoMode=true;assert.equal(checkout(real.id,real.offers[0].id),null);config.demoMode=false;
 real.demo=true;assert.equal(checkout(real.id,real.offers[0].id),null);real.demo=false;
 const old=real.offers[0].checkoutUrl;for(const bad of ['http://example.com','javascript:alert(1)','https://name:password@example.com']){real.offers[0].checkoutUrl=bad;assert.equal(checkout(real.id,real.offers[0].id),null);}real.offers[0].checkoutUrl=old;
+route(knee.id);
+assert(get('#main').innerHTML.includes(knee.name));assert(get('#main').innerHTML.includes('Circunferência da perna'));assert(get('#main').innerHTML.includes('45 a 60 cm'));assert(get('#main').innerHTML.includes('A imagem principal é ilustrativa'));
+assert(!get('#main').innerHTML.includes('id="product-video"'));assert(!get('#main').innerHTML.includes('Resina Extreme'));
+assert.deepEqual(Array.from(knee.offers, offer=>offer.quantity),[1,2,3,4,6]);
+const kneePrices=[10990,12990,25980,25890,38970];
+const kneeSlugs=['1-unidade-joelheira-de-compressao','2-unidades-joelheira-de-compressao---promocao','3-unidade-joelheira-de-compressao','4-unidades-promocional','yngsr-6-unidades'];
+for(const [i,offer] of knee.offers.entries()){
+ assert.equal(offer.priceCents,kneePrices[i]);assert.equal(offer.checkoutUrl,'https://entrega.logzz.com.br/pay/memr4645r/'+kneeSlugs[i]);assert.equal(checkout(knee.id,offer.id),offer.checkoutUrl);
+ docEvents.change({target:{name:'offer',value:offer.id}});assert(get('#purchase-action').innerHTML.includes(offer.checkoutUrl));assert.equal(get('#offer-price').textContent,new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(kneePrices[i]/100));
+}
+for(const photo of knee.images){assert(fs.existsSync(path.join(root,photo.src)));assert(fs.existsSync(path.join(root,photo.thumbnail)));}
+assert.equal(knee.images.length,3);assert(!knee.description.includes('diminuição de dor'));assert(!knee.description.includes('oxigênio'));
 route('test-2');assert(get('#main').innerHTML.includes('Produto 2'));assert(!get('#main').innerHTML.includes('id="product-video"'));assert(!get('#main').innerHTML.includes('Resina Extreme'));
 route('missing');assert(get('#main').innerHTML.includes('Esse produto não foi encontrado'));
 ctx.location.hash='#conta';winEvents.hashchange();assert(get('#main').innerHTML.includes('Não foi possível carregar o acesso'));assert(!get('#main').innerHTML.includes('type="password"'));
-console.log('PASS: 25 produtos de teste, lotes 12/24/25, filtros, busca, escape, 6 checkouts, bloqueios, páginas opcionais e conta.');
+console.log('PASS: 25 produtos de teste, lotes 12/24/25, filtros, busca, escape, 11 checkouts, galeria e medidas da joelheira, bloqueios, páginas opcionais e conta.');

@@ -14,13 +14,15 @@ Brazilian shoppers browsing on mobile and desktop, with no account required to b
 A curated affiliate storefront for products paid for upon delivery. Make the buying mechanism clear, direct each chosen kit to its exact external offer, and provide accessible human support.
 
 ## Operating Context
-Updates must go to NONY09/Cash-on-delivery on main, which the user states is connected to Netlify for automatic publishing. Deployment success must be verified separately. Supabase Auth and private account profiles are integrated with the connected Free project vsmhkanwhbkkashdjtho. Public registration is paused in both UI and database until SMTP, allowed redirect URLs, CAPTCHA and merchant identity are configured. Resina Extreme affiliate offers are now supplied and verified; the checkout is external to the catalog. WhatsApp: +55 81 99688-1704.
+Updates must go to NONY09/Cash-on-delivery on main, which the user states is connected to Netlify for automatic publishing. Deployment success must be verified separately. Supabase Auth and private account profiles are integrated with the connected Free project vsmhkanwhbkkashdjtho. Public registration is paused in both UI and database until SMTP, allowed redirect URLs, CAPTCHA and merchant identity are configured. Resina Extreme and Joelheira de Compressão affiliate offers are supplied and verified; the checkout is external to the catalog. WhatsApp: +55 81 99688-1704.
 
 ## Capabilities and Constraints
 Catalog, search, categories, product detail, full-width multi-product catalog in batches of 12, individual product pages and direct offer checkout without a cart, FAQ conversation, WhatsApp and account UI. Authentication is implemented; email delivery is pending configuration and SMS is disabled pending an approved provider. No internal order submission, live coverage, or inventory. Only real supplied products are shown. The user approved the name Chega. The live storefront URL is https://cchega.netlify.app/. The home banner rotates between the brand/payment mechanism and the featured supplied product.
 
 ## Evidence on Hand
 Resina Extreme product material: two supplier photos and a 51-second application video, producer Ares comércio e Distribuição ltda, 500 ml label, and warranty of 7 days informed by the user. Six supplied Logzz affiliate URLs were checked in the actual checkout: quantities 1–6 and prices 99.99 / 124.99 / 147.00 / 197.00 / 180.00 / 210.00 BRL. No live stock, coverage or verified customer reviews supplied. Never invent these. Native swipe gallery, thumbnails and click-to-expand video; video loads only after expansion.
+
+Joelheira de Compressão: producer Alexsander Noronha, two supplied images, a generated illustrative main image clearly labeled, no supplied video or customer reviews. Five exact kits (1/2/3/4/6) were checked in the provided checkout links at BRL 109.90 / 129.90 / 259.80 / 258.90 / 389.70. Supplier dimensions are attributed. Describe construction, fit and measures; do not reproduce unsupported medical/performance claims. Account work, SMS and CAPTCHA are deferred by the user while focusing on storefront products.
 
 ## Product Principles
 - Payment on delivery is the buying mechanism, not a guarantee against fraud.

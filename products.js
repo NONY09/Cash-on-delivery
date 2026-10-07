@@ -42,6 +42,48 @@ window.CHEGA_CONFIG = {
       { question: 'Qual é a garantia?', answer: 'O produtor informa garantia de 7 dias. Confira as condições na oferta e fale com o atendimento para saber como solicitar suporte.' },
       { question: 'O que vem no kit?', answer: 'A quantidade de frascos é a indicada na opção escolhida: de 1 a 6 unidades. Não prometemos acessórios que não estejam descritos na oferta. Confirme o conteúdo completo no checkout.' }
     ]
+  }, {
+    id: 'joelheira-de-compressao',
+    name: 'Joelheira de Compressão',
+    category: 'Movimento e bem-estar',
+    image: 'assets/joelheira/produto.webp',
+    imageAlt: 'Imagem ilustrativa da joelheira preta e cinza, com bordas verdes e faixas de ajuste',
+    imageLabel: 'Imagem ilustrativa',
+    imageDisclosure: 'A imagem principal é ilustrativa, criada a partir do material enviado. As outras duas imagens são as fotos fornecidas do produto.',
+    images: [
+      { src: 'assets/joelheira/produto.webp', thumbnail: 'assets/joelheira/produto-thumb.webp', alt: 'Imagem ilustrativa criada a partir das fotos fornecidas da joelheira de compressão preta e verde' },
+      { src: 'assets/joelheira/ajuste.webp', thumbnail: 'assets/joelheira/ajuste-thumb.webp', alt: 'Foto fornecida: joelheira de compressão e pessoa ajustando as faixas no joelho' },
+      { src: 'assets/joelheira/uso.webp', thumbnail: 'assets/joelheira/uso-thumb.webp', alt: 'Montagem fornecida: detalhes da joelheira preta e verde e pessoa usando o produto' }
+    ],
+    demo: false,
+    summary: 'Compressão e faixas de ajuste para acompanhar sua rotina.',
+    description: 'Joelheira de compressão em tecido elástico, com faixas para ajustar o encaixe. Modelo preto e cinza com detalhes verdes, conforme as imagens fornecidas. Antes de escolher seu kit, confira as medidas e a faixa de circunferência informadas pelo produtor.',
+    producer: 'Alexsander Noronha',
+    warranty: 'Garantia de 7 dias informada pelo produtor. Consulte as condições da oferta antes de confirmar o pedido.',
+    details: [
+      ['Produto', 'Joelheira de compressão com faixas de ajuste'],
+      ['Tamanho', 'Único, conforme informação do produtor'],
+      ['Altura', '27 cm, conforme informação do produtor'],
+      ['Largura', '17 cm, conforme informação do produtor'],
+      ['Circunferência da perna', 'Faixa recomendada pelo produtor: 45 a 60 cm'],
+      ['Faixa de peso informada', '60 a 120 kg; confira também as medidas para escolher o ajuste'],
+      ['Quantidades', 'Kits de 1, 2, 3, 4 ou 6 unidades'],
+      ['Uso e cuidados', 'Siga as instruções de uso e conservação fornecidas com o produto']
+    ],
+    // Valores conferidos nos checkouts originais em 07/10/2026 (America/Sao_Paulo).
+    offers: [
+      { id: 'joelheira-1', label: '1 unidade', quantity: 1, priceCents: 10990, checkoutUrl: 'https://entrega.logzz.com.br/pay/memr4645r/1-unidade-joelheira-de-compressao' },
+      { id: 'joelheira-2', label: '2 unidades', quantity: 2, priceCents: 12990, checkoutUrl: 'https://entrega.logzz.com.br/pay/memr4645r/2-unidades-joelheira-de-compressao---promocao' },
+      { id: 'joelheira-3', label: '3 unidades', quantity: 3, priceCents: 25980, checkoutUrl: 'https://entrega.logzz.com.br/pay/memr4645r/3-unidade-joelheira-de-compressao' },
+      { id: 'joelheira-4', label: '4 unidades', quantity: 4, priceCents: 25890, checkoutUrl: 'https://entrega.logzz.com.br/pay/memr4645r/4-unidades-promocional' },
+      { id: 'joelheira-6', label: '6 unidades', quantity: 6, priceCents: 38970, checkoutUrl: 'https://entrega.logzz.com.br/pay/memr4645r/yngsr-6-unidades' }
+    ],
+    faq: [
+      { question: 'Como escolher o tamanho?', answer: 'O produtor informa tamanho único, altura de 27 cm, largura de 17 cm e circunferência de perna recomendada de 45 a 60 cm. A faixa de peso indicada é de 60 a 120 kg, mas o peso sozinho não garante o encaixe. Confira suas medidas e tire dúvidas com o atendimento antes de pedir.' },
+      { question: 'O kit de uma unidade vem com um par?', answer: 'Não. Uma unidade corresponde a uma joelheira. Para duas peças, escolha o kit de 2 unidades. Confira a quantidade e o conteúdo no resumo da oferta na Logzz.' },
+      { question: 'Como funciona o ajuste?', answer: 'As imagens fornecidas mostram um corpo em tecido elástico e faixas para ajuste ao redor da joelheira. Siga as instruções de uso e conservação que acompanham o produto.' },
+      { question: 'Qual é a garantia?', answer: 'O produtor informa garantia de 7 dias. Consulte as condições da oferta e os canais do produtor antes de confirmar seu pedido.' }
+    ]
   }],
   faq: [
     { question: 'Quando eu pago?', answer: 'Você paga na entrega do produto, conforme as condições da oferta na Logzz. A loja não pede pagamento antecipado. Confira o resumo antes de confirmar seu pedido.' },

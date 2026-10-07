@@ -1,6 +1,6 @@
 # Chega — loja com pagamento na entrega
 
-Loja afiliada com a Resina Extreme e ofertas reais da Logzz. Nome Chega. aprovado, banner rotativo, catálogo público, busca e categorias, página de produto, pedidos individuais por produto, sem carrinho, kits específicos por oferta, FAQ em formato de conversa, suporte WhatsApp e telas de conta. Sem etapa de build: o SDK oficial do Supabase 2.117.2 é servido localmente em `vendor/`, com versão, lockfile, origem e licença registrados.
+Loja afiliada com Resina Extreme e Joelheira de Compressão e ofertas reais da Logzz. Nome Chega. aprovado, banner rotativo, catálogo público, busca e categorias, página de produto, pedidos individuais por produto, sem carrinho, kits específicos por oferta, FAQ em formato de conversa, suporte WhatsApp e telas de conta. Sem etapa de build: o SDK oficial do Supabase 2.117.2 é servido localmente em `vendor/`, com versão, lockfile, origem e licença registrados.
 
 ## Ver no computador
 Abra `index.html`. Navegação e arquivos são relativos, funcionando também pelo arquivo local. Para um servidor simples opcional, execute `python3 -m http.server 8080` nesta pasta e acesse `http://localhost:8080`.
@@ -25,6 +25,7 @@ Preserve o link HTTPS completo de afiliado fornecido para cada oferta, inclusive
 
 ## Estado desta entrega
 - Resina Extreme: fotos fornecidas, descrição baseada no rótulo e seis kits de 1 a 6 unidades.
+- Joelheira de Compressão: página própria, imagem principal ilustrativa identificada e duas fotos fornecidas na galeria; kits de 1/2/3/4/6, com preços conferidos de R$ 109,90 / 129,90 / 259,80 / 258,90 / 389,70. Medidas atribuídas ao produtor, sem promessas médicas não comprovadas.
 - Galeria com rolagem por toque, miniaturas e navegação por teclado; vídeo do fornecedor carregado somente ao abrir a seção de demonstração.
 - Vídeo otimizado para celular, com controles, sem reprodução automática e com descrição visual adjacente. O áudio original foi preservado; legendas de fala ainda dependem de uma transcrição conferida.
 - Ofertas conferidas nos links enviados: R$ 99,99 / 124,99 / 147,00 / 197,00 / 180,00 / 210,00. Uma unidade no link enviado custa R$ 99,99, embora o texto inicial mencionasse R$ 89,99. Os links originais de afiliado estão preservados.
@@ -60,7 +61,7 @@ A organização permaneceu Free, sem novo projeto, branch paga ou serviço pago.
 Limites e entrega de e-mail/SMS dependem de serviços externos e podem mudar. Acompanhar Usage no painel; o frontend não possui acesso às métricas administrativas nem aciona upgrade automático. Links de documentação: https://supabase.com/pricing ; https://supabase.com/docs/guides/auth/auth-smtp ; https://supabase.com/docs/guides/auth/rate-limits
 
 ## Imagens, vídeo e fontes
-Material atual e conferência das ofertas: `assets/resina/SOURCE.md`.
+Origem das imagens, prompt final e conferência das ofertas: `assets/resina/SOURCE.md` e `assets/joelheira/SOURCE.md`.
 
 Imagem conceitual produzida com a ferramenta integrada de geração de imagens. Prompt final: fotografia de estúdio para catálogo de uma única escova facial oval de silicone coral, sem marca, cerdas detalhadas e botão discreto, fundo pêssego, luz natural suave pela esquerda e sombra pela direita, composição quadrada centralizada, sem textos ou acessórios. Arquivo: `assets/escova-demo.webp`.
 

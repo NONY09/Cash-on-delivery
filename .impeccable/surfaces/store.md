@@ -21,3 +21,6 @@ Cart retired: each kit points directly to its own affiliate checkout. No combine
 
 ## Account surface
 Wide two-column account area on desktop; linear mobile form. Explicit labels, autocomplete, status announcements, optional phone and default-off separate communication preferences. Email confirmation is real Auth status; supplied phone is never presented as verified unless Auth confirms that same number. Backend release gate matches the paused signup view.
+
+## Second supplied product
+Joelheira de Compressão has a separate product route, five exact kits (1, 2, 3, 4 and 6), attributed fit measures and a three-image native swipe gallery. The new main image is explicitly illustrative; supplier originals remain visible. No invented video or testimonials. Thumbnail rows wrap and their explanation occupies a separate mobile row to preserve space on narrow screens. Category filtering remains derived from the two real products.
