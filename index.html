@@ -43,7 +43,6 @@
       </form>
       <div class="header-actions">
         <a class="account-link" href="#conta" aria-label="Minha conta"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg><span>Minha conta</span></a>
-        <button class="cart-trigger" type="button" data-action="open-cart" aria-label="Abrir carrinho, vazio"><svg class="icon"><use href="#i-bag"/></svg><span class="cart-label">Carrinho</span><span class="cart-count" id="cart-count">0</span></button>
       </div>
     </div>
     <nav class="header-nav container" aria-label="Navegação principal">
@@ -61,18 +60,12 @@
     <div class="container footer-bottom"><span>© <span id="year"></span> Chega</span><div><a href="#privacidade">Privacidade</a><a href="#termos">Condições de compra</a><a href="#trocas">Trocas e atendimento</a></div></div>
   </footer>
   <a class="wa-float" data-wa="Olá! Quero saber mais sobre os produtos e o pagamento na entrega." aria-label="Falar com suporte no WhatsApp"><svg class="icon"><use href="#i-wa"/></svg><span>Precisa de ajuda?</span></a>
-  <dialog id="cart-dialog" class="cart-dialog" aria-labelledby="cart-title">
-    <div class="drawer-head"><div><h2 id="cart-title">Seu carrinho</h2><p>Um produto por pedido. Simples assim.</p></div><button type="button" class="icon-button" data-action="close-cart" aria-label="Fechar carrinho"><svg class="icon"><use href="#i-close"/></svg></button></div>
-    <p id="cart-status" class="sr-only" role="status" aria-live="polite"></p>
-    <div id="cart-content"></div>
-  </dialog>
   <aside id="chat-panel" class="chat-panel" aria-labelledby="chat-title" hidden>
     <div class="drawer-head"><div><h2 id="chat-title">Vamos tirar sua dúvida?</h2><p>Respostas prontas, sem espera.</p></div><button class="icon-button" data-action="close-chat" type="button" aria-label="Fechar ajuda"><svg class="icon"><use href="#i-close"/></svg></button></div>
     <div class="chat-messages" id="chat-messages" role="log" aria-live="polite" aria-relevant="additions"></div>
     <div id="chat-questions" class="chat-questions"></div>
     <a class="chat-human" data-wa="Olá! Minha dúvida não foi respondida na loja. Pode me ajudar?"><svg class="icon"><use href="#i-wa"/></svg>Prefiro falar com uma pessoa</a>
   </aside>
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <noscript><div class="no-script">Ative o JavaScript para explorar a loja. Para atendimento, fale pelo WhatsApp: (81) 99688-1704.</div></noscript>
 </body>
 </html>

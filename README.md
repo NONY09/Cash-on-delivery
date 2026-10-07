@@ -1,6 +1,6 @@
 # Chega — loja com pagamento na entrega
 
-Loja afiliada com a Resina Extreme e ofertas reais da Logzz. Nome provisório, catálogo público, busca e categorias, página de produto, carrinho com um tipo de produto por pedido, kits específicos por oferta, FAQ em formato de conversa, suporte WhatsApp e telas de conta. Sem dependências ou etapa de build.
+Loja afiliada com a Resina Extreme e ofertas reais da Logzz. Nome provisório, catálogo público, busca e categorias, página de produto, pedidos individuais por produto, sem carrinho, kits específicos por oferta, FAQ em formato de conversa, suporte WhatsApp e telas de conta. Sem dependências ou etapa de build.
 
 ## Ver no computador
 Abra `index.html`. Navegação e arquivos são relativos, funcionando também pelo arquivo local. Para um servidor simples opcional, execute `python3 -m http.server 8080` nesta pasta e acesse `http://localhost:8080`.
@@ -19,7 +19,7 @@ As atualizações devem ser enviadas para esse repositório, conectado ao Netlif
 O arquivo `_headers` cobre o upload manual. O fluxo principal é GitHub → Netlify. A prévia está marcada para não ser indexada.
 
 ## Trocar produtos e ofertas
-Edite `products.js`. Adicione um objeto na lista `products` para cada produto. Cada produto precisa de um `id` único, nome, categoria, imagem local e texto verificado. Os preços são inteiros em centavos: `9990` representa R$ 99,90. Cada entrada de `offers` corresponde a um kit fixo, com sua própria quantidade, valor e `checkoutUrl` de afiliado. Cadastre somente kits realmente disponíveis. O código não soma produtos diferentes e exige confirmação antes de substituir o atual.
+Edite `products.js`. Adicione um objeto na lista `products` para cada produto. Cada produto precisa de um `id` único, nome, categoria, imagem local, resumo, descrição e ofertas verificadas. `images`, `details`, `faq` e `video` são opcionais; cada vídeo deve trazer seu próprio título, descrição e `visualDescription` conferida. Os preços são inteiros em centavos: `9990` representa R$ 99,90. Cada entrada de `offers` corresponde a um kit fixo, com sua própria quantidade, valor e `checkoutUrl` de afiliado. Cadastre somente kits realmente disponíveis. Cada kit abre seu link próprio na Logzz. Não existe carrinho nem soma de produtos diferentes. O catálogo usa toda a largura disponível, três colunas no desktop, duas no tablet e uma no celular, com lotes de 12 produtos e filtros por categoria. Cada card abre sua página para escolher o kit.
 
 Preserve o link HTTPS completo de afiliado fornecido para cada oferta, inclusive identificadores e parâmetros. Confira o domínio do parceiro. Não insira senha, segredo, chave privada ou credenciais em nenhum arquivo.
 
@@ -28,7 +28,7 @@ Preserve o link HTTPS completo de afiliado fornecido para cada oferta, inclusive
 - Galeria com rolagem por toque, miniaturas e navegação por teclado; vídeo do fornecedor carregado somente ao abrir a seção de demonstração.
 - Vídeo otimizado para celular, com controles, sem reprodução automática e com descrição visual adjacente. O áudio original foi preservado; legendas de fala ainda dependem de uma transcrição conferida.
 - Ofertas conferidas nos links enviados: R$ 99,99 / 124,99 / 147,00 / 197,00 / 180,00 / 210,00. Uma unidade no link enviado custa R$ 99,99, embora o texto inicial mencionasse R$ 89,99. Os links originais de afiliado estão preservados.
-- Carrinho salva apenas produto e oferta no navegador. A finalização encaminha ao checkout externo da Logzz; dados de entrega, cobertura, custos e pagamento são confirmados lá.
+- O botão “Pedir” muda para o link exato do kit escolhido e abre o checkout externo da Logzz. Não há carrinho nem seleção persistida. Dados de entrega, cobertura, custos e pagamento são confirmados lá. O carrinho antigo é removido automaticamente.
 - Login, cadastro e recuperação têm estrutura visual com campos e envios desabilitados. Não há coleta de senhas.
 - Ajuda utiliza respostas cadastradas e WhatsApp +55 81 99688-1704. Não há API de IA, pixel, analytics ou backend.
 - O vídeo é identificado como material do fornecedor, sem depoimentos, avaliações ou números de vendas inventados.
@@ -49,4 +49,6 @@ Imagem conceitual produzida com a ferramenta integrada de geração de imagens. 
 Prompt completo e origem registrados em `assets/IMAGE_SOURCE.txt`. Fontes URW Gothic e Nimbus Sans servidas localmente. Licenças e avisos em `assets/fonts/LICENSE.txt`.
 
 ## Verificação
-A entrega inclui validação de sintaxe JavaScript, caminhos dos arquivos, regras centrais do carrinho, links de checkout e bloqueio de produtos de demonstração. Capturas e testes em navegador não foram realizados neste ambiente; revise no Netlify em celular e desktop antes de abrir as vendas.
+Execute `node tests/catalog.test.cjs` para testar o catálogo e os links sem instalar dependências. As 25 entradas sintéticas existem somente na memória do teste, não na loja publicada.
+
+A entrega inclui validação de sintaxe JavaScript, caminhos dos arquivos, busca/categorias com vários produtos, carregamento em lotes, links de cada kit e ausência de carrinho e bloqueio de produtos de demonstração. Capturas e testes em navegador não foram realizados neste ambiente; revise no Netlify em celular e desktop antes de abrir as vendas.

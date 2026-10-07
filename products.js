@@ -3,7 +3,6 @@ window.CHEGA_CONFIG = {
   name: 'Chega',
   whatsapp: '5581996881704',
   demoMode: false, // O pedido é confirmado exclusivamente no checkout externo da Logzz.
-  storageKey: 'chega-cart-v1',
   products: [{
     id: 'resina-extreme',
     name: 'Resina Extreme',
@@ -14,7 +13,7 @@ window.CHEGA_CONFIG = {
       { src: 'assets/resina/produto.webp', thumbnail: 'assets/resina/produto-thumb.webp', alt: 'Frasco de Resina Extreme de 500 ml — foto do material fornecido' },
       { src: 'assets/resina/carro.webp', thumbnail: 'assets/resina/carro-thumb.webp', alt: 'Material de divulgação da Resina Extreme com frasco e carro vermelho' }
     ],
-    video: { src: 'assets/resina/demonstracao.mp4', poster: 'assets/resina/video-poster.jpg', title: 'Veja a Resina Extreme em ação', description: 'Vídeo de aplicação enviado pelo fornecedor. O resultado depende da superfície, do estado da pintura e do uso conforme o rótulo.' },
+    video: { visualDescription: 'Uma pessoa mostra o frasco da Resina Extreme e passa um pano amarelo pela pintura de um carro. É uma demonstração visual de aplicação; siga as instruções do rótulo para usar o produto.', src: 'assets/resina/demonstracao.mp4', poster: 'assets/resina/video-poster.jpg', title: 'Veja a Resina Extreme em ação', description: 'Vídeo de aplicação enviado pelo fornecedor. O resultado depende da superfície, do estado da pintura e do uso conforme o rótulo.' },
     demo: false,
     summary: 'Um cuidado a mais para o brilho do seu carro.',
     description: 'Finalizador automotivo em frasco de 500 ml. Conheça o produto, assista à demonstração e escolha a quantidade para sua rotina. Leia o rótulo e siga as instruções do fabricante antes de aplicar.',

@@ -6,12 +6,15 @@ A large three-line headline, the explicit payment mechanism, one catalog CTA, an
 
 ## Sequence and operation
 
-Catalog appears next, followed by a concise three-step purchasing explanation and support. Product pages shift toward operation: native swipe gallery, supplier demonstration video, configured offer, price, cart action and product-specific FAQ. Browser hash navigation makes product and account pages linkable without a server.
+Catalog appears next, followed by a concise three-step purchasing explanation and support. Product pages shift toward operation: native swipe gallery, supplier demonstration video, configured offer, price, direct Logzz order action and product-specific FAQ. Browser hash navigation makes product and account pages linkable without a server.
 
 ## Responsive and support behavior
 
-Desktop uses two columns; mobile uses a linear flow with search on its own header row. Contextual support remains visible. The WhatsApp floater is hidden in dialogs, on product pages and at the mobile breakpoint. The nonmodal FAQ assistant and the native cart dialog have separate roles.
+Hero and detail use two desktop columns; the catalog spans the full container with three desktop columns, two tablet columns and one mobile column. Cards stack copy, price and kit action, with 32px column gaps and 44px row gaps. Show more reveals 12 cards per batch. Mobile search occupies its own header row. Contextual support remains visible. The WhatsApp floater is hidden on product pages and at the mobile breakpoint. The nonmodal FAQ assistant and the direct external order links have separate roles.
 
 ## Evidence and scope
 
 Chega is a replaceable working name. The demo brush is no longer in the catalog. Resina Extreme photos, video and six external affiliate offers are supplied and prices were checked in the actual checkout. Authentication, internal order submission, live coverage and inventory are deferred. Do not present fictional testimonials, certifications or merchant evidence. This brief records source intent, not browser QA.
+
+## Purchase decision
+Cart retired: each kit points directly to its own affiliate checkout. No combined order across products. Category filters and search operate on the complete supplied catalog; only rendering is batched. Test fixtures may simulate many products, but are never shipped as catalog entries.

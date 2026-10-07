@@ -165,19 +165,9 @@
         "purpose": "WhatsApp floater."
       },
       {
-        "name": "cart-drawer",
-        "value": "-10px 0 60px #29201e25",
-        "purpose": "Right modal drawer."
-      },
-      {
         "name": "chat-panel",
         "value": "0 16px 64px #29201e30",
         "purpose": "Nonmodal FAQ assistant."
-      },
-      {
-        "name": "toast",
-        "value": "0 8px 26px #29201e26",
-        "purpose": "Transient cart feedback."
       }
     ],
     "motion": [
@@ -190,16 +180,6 @@
         "name": "faq-chevron",
         "value": "transform .2s",
         "purpose": "Open-state rotation."
-      },
-      {
-        "name": "toast-state",
-        "value": "opacity .2s,transform .2s",
-        "purpose": "Toast fades and moves from 12px to rest."
-      },
-      {
-        "name": "cart-bump",
-        "value": ".32s cubic-bezier(.16,1,.3,1)",
-        "purpose": "Cart count scales 1 → 1.2 → 1."
       },
       {
         "name": "reduced-motion",
@@ -228,9 +208,6 @@
     "focus": {
       "outline": "3px solid var(--coral)",
       "outlineOffset": "4px"
-    },
-    "backdrop": {
-      "cart": "#29201e66"
     },
     "provenance": {
       "source": "styles.css",

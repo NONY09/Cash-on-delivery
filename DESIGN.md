@@ -118,13 +118,13 @@ Ink anchors headings and selected category controls. Muted carries body copy and
 
 ## Typography
 
-Chega Display and Chega Sans are self-hosted font families, with sans-serif fallbacks. Display type carries major headings; body type handles product titles, navigation, controls and explanatory copy. Prices and cart counts use tabular numerals.
+Chega Display and Chega Sans are self-hosted font families, with sans-serif fallbacks. Display type carries major headings; body type handles product titles, navigation, controls and explanatory copy. Prices use tabular numerals.
 
 The frontmatter records the default hero, section heading, product title, body and small-label roles. These are roles, not one universal heading size: product headings use (43px), account headings (62px) and legal headings (48px) on desktop. The hero overrides to (76px) below the intermediate breakpoint, (66px) on mobile and (59px) on narrow screens. Section headings become (32px) on mobile. Body copy stays comfortably spaced; FAQ and legal text use longer line heights and bounded measures.
 
 ## Layout
 
-The centered container is capped at (1200px), with desktop edges of (32px) and mobile edges of (20px). Two-column layouts organize hero, product, help and account content; catalog uses an asymmetric split. Product grids use auto-fit columns with a minimum of (250px), constrained to the available width.
+The centered container is capped at (1200px), with desktop edges of (32px) and mobile edges of (20px). Two-column layouts organize hero, product, help and account content; catalog spans the full container. Product grids use three equal columns on desktop, two at (1050px) and below, and one at (760px) and below. Desktop gaps are (32px) between columns and (44px) between rows. Card content stacks title, summary, price and kit action to avoid narrow side-by-side text.
 
 At (1050px) and below, gaps tighten, header action labels hide and offers wrap. At (760px) and below, principal layouts become one column, the search occupies its own header row, supporting navigation text hides and the footer becomes two columns. At (360px) and below, footer and offer choices become one column. At (1450px) and above, the hero widens its gap and its actions align horizontally.
 
@@ -132,23 +132,23 @@ Spacing combines compact control gaps with section padding. Catalog and help use
 
 ## Elevation & Depth
 
-Content is flat at rest, separated by paper, cream and fine warm borders. Shadows distinguish the delivery slip, floating support, toast, chat panel and modal cart. The cart adds a dark translucent backdrop; it has square edges rather than card rounding. Exact shadows and motion are recorded in the sidecar.
+Content is flat at rest, separated by paper, cream and fine warm borders. Shadows distinguish the delivery slip, floating support and chat panel. Exact shadows and motion are recorded in the sidecar.
 
 ## Shapes
 
-Controls share gently curved corners; tags and small overlays are tighter, images more generous. Circular cart counts and numbered steps stand apart from rectangular controls. Product imagery clips to its frame. Fine borders define categories, offer choices, forms and dividers without boxing every content block.
+Controls share gently curved corners; tags and small overlays are tighter, images more generous. Numbered steps stand apart from rectangular controls. Product imagery clips to its frame. Fine borders define categories, offer choices, forms and dividers without boxing every content block.
 
 ## Components
 
 - **Buttons:** bold body type, a minimum height of (52px), coral primary and outlined secondary variants. Primary hover darkens; secondary hover gains cream. Disabled actions use muted warm fills. Text actions remain plain and underline on hover.
 - **Inputs:** cream search enclosure with an unboxed field; account fields and offer selects use paper surfaces and line borders. Account fields have a minimum height of (48px). The prototype's disabled account presentation does not imply live authentication.
-- **Navigation:** plain body links, an oversized display wordmark and compact account/cart actions. Mobile search moves below the wordmark and actions. Link hover underlines rather than adding decorative motion.
+- **Navigation:** plain body links, an oversized display wordmark and compact account access. Mobile search moves below the wordmark and actions. Link hover underlines rather than adding decorative motion.
 - **Categories and tags:** categories use bordered controls; the active category switches to ink with paper text. Informational image tags use compact paper-backed rectangles.
 - **Product cards:** rounded image frame above an unboxed title-and-price row. Detail links sit over the image. Keep prices aligned with tabular numerals and preserve visible demo status.
 - **Offer choices:** bordered radio labels; checked choices gain coral borders and a pale warm fill. Selection uses the actual configured offers.
-- **Support and overlays:** a cream payment note, native FAQ disclosures, a right-hand cart drawer and a floating nonmodal FAQ panel. Contextual support remains available when the floater is hidden.
+- **Support and overlays:** a cream payment note, native FAQ disclosures, direct per-kit order links and a floating nonmodal FAQ panel. Contextual support remains available when the floater is hidden.
 
-All interactive elements share a coral focus outline of (3px), offset by (4px). Button state transitions use (0.18s); FAQ and toast transitions use (0.2s). The cart count bumps over (0.32s) when an offer is added. Reduced-motion preference removes animations, transitions and smooth scrolling.
+All interactive elements share a coral focus outline of (3px), offset by (4px). Button state transitions use (0.18s); FAQ transitions use (0.2s). Reduced-motion preference removes animations, transitions and smooth scrolling.
 
 ## Do's and Don'ts
 
