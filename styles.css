@@ -193,13 +193,8 @@ img{display:block;max-width:100%;height:auto}
 .account-notice{display:flex;gap:14px;padding:18px;background:var(--cream);border-radius:10px;margin-bottom:24px}
 .account-notice p{font-size:14px}
 .account-notice .icon{color:var(--muted);width:22px;height:22px}
-#account-form fieldset{border:0;padding:0;margin:0}
-#account-form label:not(.checkbox-label){display:block;font-size:14px;font-weight:700;margin-bottom:8px}
-#account-form input:not([type=checkbox]){width:100%;min-height:48px;border:1px solid var(--line);padding:12px 14px;margin-bottom:20px;background:var(--paper);color:var(--muted)}
-#account-form input::placeholder{color:var(--muted);opacity:1}
 .checkbox-label{display:flex;align-items:flex-start;gap:10px;font-size:13px;margin:0 0 16px;color:var(--muted)}
 .checkbox-label input{margin-top:3px;flex-shrink:0}
-#account-form .button{width:100%;margin-top:8px}
 .form-status{font-size:12px;margin-top:12px}
 .account-form-area>.text-button{margin-top:14px}
 .account-legal{display:flex;gap:24px;font-size:12px;margin-top:24px;color:var(--muted)}
@@ -429,3 +424,9 @@ img{display:block;max-width:100%;height:auto}
 @media(max-width:360px){.offer-grid .offer-option{min-width:0;padding:12px 10px}.offer-grid .offer-option strong{font-size:13px}.offer-grid .offer-option b{font-size:16px}.offer-grid .offer-option small{font-size:10px}}
 
 .order-button{width:100%;min-height:56px}.order-explanation{margin-top:14px;font-size:13px;line-height:1.6;max-width:52ch}.catalog-tools{align-items:flex-start}.category-tabs{flex:1;min-width:0}#search-status{flex-shrink:0;padding-top:12px}.product-card-image img{aspect-ratio:1}.catalog-empty{grid-column:1/-1}
+
+/* Conta: formulários claros e preferências com escolhas independentes. */
+.account-form-area form{margin-top:24px}.account-form-area fieldset{border:0;padding:0;margin:0;min-width:0}.account-form-area form label:not(.checkbox-label){display:block;margin-top:18px;margin-bottom:8px;font-size:14px;font-weight:700}.account-form-area form input:not([type=checkbox]){display:block;width:100%;min-height:50px;border:1px solid var(--line);background:var(--paper);padding:12px 14px;color:var(--ink)}.account-form-area form .button{margin-top:24px;width:100%}.account-form-area .checkbox-label{display:flex;align-items:flex-start;gap:12px;line-height:1.55;font-size:14px;padding-block:8px;margin-top:12px}.account-form-area input[type=checkbox]{width:20px;height:20px;flex-shrink:0;margin-top:2px;accent-color:var(--coral)}.account-form-area .checkbox-label a{text-decoration:underline}.account-consent{padding-top:20px!important;border-top:1px solid var(--line)}.account-form-area .field-help{font-size:13px;line-height:1.55;margin-top:10px}.account-flow-note{font-size:13px;line-height:1.6;margin-top:20px}.account-identity{margin-top:24px;padding-bottom:20px;border-bottom:1px solid var(--line)}.account-identity p{overflow-wrap:anywhere}.account-identity>span{display:flex;align-items:center;gap:8px;font-size:13px;margin-top:8px}.account-preferences{margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}.account-preferences h3{font-size:20px}.account-preferences>p{font-size:14px;margin-top:12px}.account-tools{display:flex;flex-wrap:wrap;gap:16px 28px;margin-top:24px}.account-delete,.account-phone-verify{margin-top:32px;padding-block:20px;border-top:1px solid var(--line)}.account-delete>summary,.account-phone-verify>summary{cursor:pointer;min-height:44px;padding-block:10px;font-weight:700}.account-delete>p{font-size:14px;line-height:1.6;margin-top:12px}.account-phone-verify form{margin-top:20px}.account-form-area form[aria-busy=true]{opacity:.8}.account-form-area .form-status{overflow-wrap:anywhere;min-height:24px;margin-top:20px}.account-form-area form input:disabled{background:var(--cream)}
+@media(max-width:760px){.account-section{padding-block:40px}.account-form-area .checkbox-label{font-size:14px}.account-form-area form{margin-top:20px}.account-tools{flex-direction:column;align-items:flex-start;gap:4px}}
+
+.account-captcha{margin-top:24px;max-width:100%;min-height:65px}

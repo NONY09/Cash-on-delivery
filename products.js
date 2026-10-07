@@ -47,7 +47,7 @@ window.CHEGA_CONFIG = {
     { question: 'Quando eu pago?', answer: 'Você paga na entrega do produto, conforme as condições da oferta na Logzz. A loja não pede pagamento antecipado. Confira o resumo antes de confirmar seu pedido.' },
     { question: 'Entrega na minha região?', answer: 'A disponibilidade depende do produto, do estoque e do CEP. Ao continuar para a Logzz, consulte seu endereço e as datas disponíveis antes de confirmar. A loja não confirma estoque ou prazo em tempo real.' },
     { question: 'Posso pedir mais de uma unidade?', answer: 'Sim. Escolha um dos kits cadastrados para o produto. Cada pedido contém apenas um tipo de produto, na quantidade da opção escolhida.' },
-    { question: 'Preciso criar uma conta?', answer: 'Você pode conhecer a loja e acessar a oferta sem criar uma conta aqui. O cadastro e o login da loja ainda não estão habilitados. Os dados necessários ao pedido são preenchidos diretamente no checkout da Logzz.' },
+    { question: 'Preciso criar uma conta?', answer: 'Você pode conhecer a loja e acessar a oferta sem criar uma conta aqui. A conta da loja é opcional. Consulte Minha conta para entrar ou verificar a disponibilidade do cadastro. Os dados necessários ao pedido são preenchidos diretamente no checkout da Logzz.' },
     { question: 'Quais formas de pagamento são aceitas?', answer: 'O checkout da Logzz apresenta as formas de pagamento para a entrega. Confira as opções, o total e possíveis acréscimos de parcelamento antes de confirmar o pedido.' },
     { question: 'Como pedir uma troca ou ajuda?', answer: 'Fale com o atendimento pelo WhatsApp e informe o produto e, se houver, a identificação do pedido. As condições aplicáveis também podem ser consultadas na oferta do produtor.' }
   ]

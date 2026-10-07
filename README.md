@@ -1,6 +1,6 @@
 # Chega — loja com pagamento na entrega
 
-Loja afiliada com a Resina Extreme e ofertas reais da Logzz. Nome provisório, catálogo público, busca e categorias, página de produto, pedidos individuais por produto, sem carrinho, kits específicos por oferta, FAQ em formato de conversa, suporte WhatsApp e telas de conta. Sem dependências ou etapa de build.
+Loja afiliada com a Resina Extreme e ofertas reais da Logzz. Nome provisório, catálogo público, busca e categorias, página de produto, pedidos individuais por produto, sem carrinho, kits específicos por oferta, FAQ em formato de conversa, suporte WhatsApp e telas de conta. Sem etapa de build: o SDK oficial do Supabase 2.117.2 é servido localmente em `vendor/`, com versão, lockfile, origem e licença registrados.
 
 ## Ver no computador
 Abra `index.html`. Navegação e arquivos são relativos, funcionando também pelo arquivo local. Para um servidor simples opcional, execute `python3 -m http.server 8080` nesta pasta e acesse `http://localhost:8080`.
@@ -29,17 +29,35 @@ Preserve o link HTTPS completo de afiliado fornecido para cada oferta, inclusive
 - Vídeo otimizado para celular, com controles, sem reprodução automática e com descrição visual adjacente. O áudio original foi preservado; legendas de fala ainda dependem de uma transcrição conferida.
 - Ofertas conferidas nos links enviados: R$ 99,99 / 124,99 / 147,00 / 197,00 / 180,00 / 210,00. Uma unidade no link enviado custa R$ 99,99, embora o texto inicial mencionasse R$ 89,99. Os links originais de afiliado estão preservados.
 - O botão “Pedir” muda para o link exato do kit escolhido e abre o checkout externo da Logzz. Não há carrinho nem seleção persistida. Dados de entrega, cobertura, custos e pagamento são confirmados lá. O carrinho antigo é removido automaticamente.
-- Login, cadastro e recuperação têm estrutura visual com campos e envios desabilitados. Não há coleta de senhas.
-- Ajuda utiliza respostas cadastradas e WhatsApp +55 81 99688-1704. Não há API de IA, pixel, analytics ou backend.
+- Supabase Auth integrado: login, cadastro com confirmação de e-mail, recuperação, perfil, preferências, exportação e exclusão de conta. Cadastro e envio de e-mail ficam pausados até a configuração externa descrita abaixo. SMS permanece desativado. Não são coletados CPF ou endereço aqui.
+- Ajuda utiliza respostas cadastradas e WhatsApp +55 81 99688-1704. Não há API de IA, pixel ou analytics. O backend é usado somente na área de conta.
 - O vídeo é identificado como material do fornecedor, sem depoimentos, avaliações ou números de vendas inventados.
 - Textos de privacidade, termos e trocas descrevem o funcionamento atual. Identificação definitiva da loja e revisão das condições da operação continuam pendentes.
 
-## Próxima etapa: operação real e Supabase
-Conectar autenticação apenas após configurar o projeto real, confirmação de e-mail, recuperação de senha, redirecionamentos permitidos, regras de acesso/RLS para os dados de cada usuário, proteção contra abuso e separação de consentimentos. Usar somente chave publicável no cliente; nunca `service_role`. Não armazenar senhas manualmente. Definir previamente os dados mínimos de pedidos e seus responsáveis.
+## Supabase: configuração aplicada e liberação pendente
+Projeto existente: `vsmhkanwhbkkashdjtho`, organização Chega, plano Free. `auth-config.js` contém apenas URL e chave publicável. O SDK oficial está em `vendor/supabase.js`. A sessão usa o armazenamento da aba, e o perfil não guarda senha ou cópias de pedidos.
 
-Publicar identificação verdadeira da loja e dos responsáveis pelas ofertas, conteúdo do produto, estoque/cobertura, prazos, possíveis custos de entrega, meios aceitos e condições de atendimento. Revisar as políticas definitivas conforme a operação real. O pagamento na entrega evita pagamento antecipado; não garante ausência de golpes nem autoriza prometer isso.
+Foram aplicados os snapshots em `supabase/sql/chega_account_setup.sql` e `chega_account_hardening.sql`. O histórico remoto contém as migrações `chega_private_profiles_and_registration_gate`, `chega_session_and_internal_function_hardening` e `chega_explicit_private_settings_denial`. Não reaplique os snapshots em um projeto já configurado.
 
-Novos produtos reais devem usar `demo: false` e ofertas conferidas; `demoMode: false` já permite o checkout externo deste produto. A indexação continua bloqueada em `robots.txt` e na meta `robots` até concluir os dados e condições da loja. A CSP bloqueia conexões nesta versão (`connect-src 'none'`); revise com os domínios exatos necessários ao Supabase, sem liberar indiscriminadamente. Nunca desabilitar a proteção apenas para fazer a integração funcionar.
+`public.chega_profiles` tem RLS, acesso por ID próprio, exigência de e-mail confirmado e sessão ainda existente. O cliente pode atualizar apenas nome, telefone e preferências. Datas/versão de autorização e dono são controlados pelo servidor. Funções privilegiadas ficam no esquema privado, com caminho de busca fixo e permissões restritas. A função interna padrão `public.rls_auto_enable()` teve execução pública revogada sem remover o acionamento interno.
+
+A Edge Function `delete-account` está implantada, com `verify_jwt = true`, validação adicional pelo Auth e perfil, nova confirmação de senha, revogação global de sessões e exclusão em cascata. A chave administrativa existe somente no ambiente da função; não é enviada ao site. O corpo nunca aceita um ID de usuário escolhido pelo cliente.
+
+Antes de liberar cadastros públicos:
+1. Informar o endereço HTTPS definitivo da loja e configurar **Site URL** e **Redirect URLs** exatas no Supabase. O retorno esperado é a URL da loja com `#conta`, sem curingas gerais.
+2. Configurar SMTP de um serviço autorizado. O SMTP padrão do Supabase aceita somente endereços da equipe e até 2 mensagens/hora; não serve para clientes. Manter confirmação de e-mail ativada e troca segura de e-mail. Credenciais SMTP devem ficar no painel, nunca no repositório.
+3. Configurar Cloudflare Turnstile no Auth, mantendo a chave secreta somente no painel, e colocar a sitekey pública em `captchaSiteKey`. O widget e o envio de token já estão preparados na criação, login, recuperação, reenvio e confirmação de senha para exclusão. O script do Turnstile só é carregado na área da conta quando houver sitekey configurada. Ajustar a senha mínima no Auth para 12 caracteres e as taxas de envio ao limite do provedor. O mínimo no formulário já é 12; não é uma afirmação sobre a configuração atual do servidor.
+4. Publicar nome/razão social verdadeiro do responsável pelo catálogo, canal de atendimento e revisar a política, inclusive hospedagem internacional nos EUA. Um checkbox não garante conformidade jurídica.
+5. Validar cadastro → e-mail → login → recuperação → perfil → exclusão com contas de teste autorizadas. Só então ajustar `publicRegistrationEnabled: true` e executar `update chega_private.account_settings set registration_enabled=true where singleton;`.
+
+Não libere só o frontend: o banco bloqueia inserções do Auth enquanto `registration_enabled=false`. O limite inicial é 5000 perfis; isso reduz crescimento, mas não é garantia de que toda cota do plano ou do provedor nunca será atingida.
+
+Telefone é opcional e fica no perfil como informado, sem selo de verificação. Código e telas de SMS ficam disponíveis somente após configurar um provedor e aprovar seus custos. `phoneVerificationEnabled` está `false`; não há envio de SMS ou verificação de CPF. Quando ativado, a confirmação usa `updateUser({phone})` e `verifyOtp` de `phone_change`, com o status vindo do Auth, nunca de um campo editável do perfil.
+
+## Consumo e limites
+A organização permaneceu Free, sem novo projeto, branch paga ou serviço pago. Referência consultada: 500 MB de banco, 50 mil usuários ativos mensais, 5 GB de egress e 500 mil invocações de Edge Functions no plano gratuito. Não armazenamos mídia no Supabase, não usamos Realtime nem listamos todas as contas. Cada perfil tem campos limitados; buscas são por chave primária. O banco foi medido em cerca de 11 MB após a configuração, sem usuários persistidos de teste.
+
+Limites e entrega de e-mail/SMS dependem de serviços externos e podem mudar. Acompanhar Usage no painel; o frontend não possui acesso às métricas administrativas nem aciona upgrade automático. Links de documentação: https://supabase.com/pricing ; https://supabase.com/docs/guides/auth/auth-smtp ; https://supabase.com/docs/guides/auth/rate-limits
 
 ## Imagens, vídeo e fontes
 Material atual e conferência das ofertas: `assets/resina/SOURCE.md`.
@@ -49,6 +67,8 @@ Imagem conceitual produzida com a ferramenta integrada de geração de imagens. 
 Prompt completo e origem registrados em `assets/IMAGE_SOURCE.txt`. Fontes URW Gothic e Nimbus Sans servidas localmente. Licenças e avisos em `assets/fonts/LICENSE.txt`.
 
 ## Verificação
-Execute `node tests/catalog.test.cjs` para testar o catálogo e os links sem instalar dependências. As 25 entradas sintéticas existem somente na memória do teste, não na loja publicada.
+Execute `node tests/catalog.test.cjs` e `node tests/auth.test.cjs` para testar o catálogo e os links sem instalar dependências. As 25 entradas sintéticas existem somente na memória do teste, não na loja publicada.
 
 A entrega inclui validação de sintaxe JavaScript, caminhos dos arquivos, busca/categorias com vários produtos, carregamento em lotes, links de cada kit e ausência de carrinho e bloqueio de produtos de demonstração. Capturas e testes em navegador não foram realizados neste ambiente; revise no Netlify em celular e desktop antes de abrir as vendas.
+
+Os testes SQL em `supabase/sql/chega_account_security_test.sql` executaram em transação e rollback, comprovando isolamento, atualização própria, bloqueio de outro dono, imutabilidade do consentimento, acesso anônimo negado, bloqueio de e-mail não confirmado e sessão revogada, trava de cadastro e exclusão em cascata. Nenhum e-mail de teste foi enviado. Entrega de e-mails, CAPTCHA, SMS, UI no navegador e callback de domínio real continuam pendentes de configuração/verificação.

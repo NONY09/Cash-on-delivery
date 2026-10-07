@@ -50,5 +50,5 @@ real.demo=true;assert.equal(checkout(real.id,real.offers[0].id),null);real.demo=
 const old=real.offers[0].checkoutUrl;for(const bad of ['http://example.com','javascript:alert(1)','https://name:password@example.com']){real.offers[0].checkoutUrl=bad;assert.equal(checkout(real.id,real.offers[0].id),null);}real.offers[0].checkoutUrl=old;
 route('test-2');assert(get('#main').innerHTML.includes('Produto 2'));assert(!get('#main').innerHTML.includes('id="product-video"'));assert(!get('#main').innerHTML.includes('Resina Extreme'));
 route('missing');assert(get('#main').innerHTML.includes('Esse produto não foi encontrado'));
-ctx.location.hash='#conta';winEvents.hashchange();assert(get('#main').innerHTML.includes('<fieldset disabled'));
+ctx.location.hash='#conta';winEvents.hashchange();assert(get('#main').innerHTML.includes('Não foi possível carregar o acesso'));assert(!get('#main').innerHTML.includes('type="password"'));
 console.log('PASS: 25 produtos de teste, lotes 12/24/25, filtros, busca, escape, 6 checkouts, bloqueios, páginas opcionais e conta.');

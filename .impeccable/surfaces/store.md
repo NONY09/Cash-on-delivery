@@ -14,7 +14,10 @@ Hero and detail use two desktop columns; the catalog spans the full container wi
 
 ## Evidence and scope
 
-Chega is a replaceable working name. The demo brush is no longer in the catalog. Resina Extreme photos, video and six external affiliate offers are supplied and prices were checked in the actual checkout. Authentication, internal order submission, live coverage and inventory are deferred. Do not present fictional testimonials, certifications or merchant evidence. This brief records source intent, not browser QA.
+Chega is a replaceable working name. The demo brush is no longer in the catalog. Resina Extreme photos, video and six external affiliate offers are supplied and prices were checked in the actual checkout. Authentication and profile UI are integrated; public signup remains gated pending mail delivery, CAPTCHA, redirect URLs and merchant identity. Internal order submission, live coverage and inventory are deferred. Do not present fictional testimonials, certifications or merchant evidence. This brief records source intent, not browser QA.
 
 ## Purchase decision
 Cart retired: each kit points directly to its own affiliate checkout. No combined order across products. Category filters and search operate on the complete supplied catalog; only rendering is batched. Test fixtures may simulate many products, but are never shipped as catalog entries.
+
+## Account surface
+Wide two-column account area on desktop; linear mobile form. Explicit labels, autocomplete, status announcements, optional phone and default-off separate communication preferences. Email confirmation is real Auth status; supplied phone is never presented as verified unless Auth confirms that same number. Backend release gate matches the paused signup view.
