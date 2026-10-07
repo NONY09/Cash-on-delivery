@@ -1,15 +1,20 @@
 ---
 name: Chega
-description: Warm everyday commerce with clear editorial type and a coral purchase accent.
+description: Festive everyday commerce with forest green, bright red, gold and warm paper.
 colors:
   ink: "#29201e"
   muted: "#6c5a54"
-  paper: "#fffdf9"
-  cream: "#f6f0e7"
-  coral: "#bf432c"
-  coral-hover: "#a53622"
-  peach: "#f3d4c6"
+  paper: "#fffbf5"
+  cream: "#f8efdf"
+  coral: "#c63825"
+  coral-hover: "#a82b1b"
+  peach: "#ffe1cc"
   line: "#dfd3c8"
+  forest: "#154b40"
+  forest-deep: "#103c33"
+  gold: "#f6cb73"
+  on-forest: "#fff5df"
+  muted-forest: "#dce8da"
   white: "white"
 typography:
   display:
@@ -95,9 +100,9 @@ components:
 
 ## Overview
 
-**Creative North Star: "Warm everyday commerce"**
+**Creative North Star: "A warm, festive everyday store"**
 
-Bright paper surfaces, warm neutrals and clear editorial type make browsing feel approachable. Coral marks purchase actions and selected details; practical information stays readable and direct. Chega is a provisional identity.
+Ronaldo approved a stronger store-wide palette and a Christmas campaign on 7 October 2026. Warm paper and clear editorial type retain Chega’s identity. Forest green anchors the announcement strip, campaign, service line, prices and footer; bright red marks purchase actions and selected categories; gold emphasizes the holiday headline and campaign CTA. Product facts and checkout behavior are preserved.
 
 **Key Characteristics:**
 - Warm paper and cream surfaces.
@@ -107,7 +112,7 @@ Bright paper surfaces, warm neutrals and clear editorial type make browsing feel
 
 ## Colors
 
-The palette combines warm neutrals with a coral action accent. Frontmatter contains the normative values, using the source CSS names.
+The palette combines warm neutrals with forest green, bright red and gold campaign accents. Frontmatter contains the normative values, using the source CSS names.
 
 ### Primary
 
@@ -144,7 +149,7 @@ Controls share gently curved corners; tags and small overlays are tighter, image
 - **Buttons:** bold body type, a minimum height of (52px), coral primary and outlined secondary variants. Primary hover darkens; secondary hover gains cream. Disabled actions use muted warm fills. Text actions remain plain and underline on hover.
 - **Inputs:** cream search enclosure with an unboxed field; account fields and offer selects use paper surfaces and line borders. Account fields have a minimum height of (48px). The prototype's disabled account presentation does not imply live authentication.
 - **Navigation:** plain body links, an oversized display wordmark and compact account access. Mobile search moves below the wordmark and actions. Link hover underlines rather than adding decorative motion.
-- **Categories and tags:** circular photo highlights use 94px circles and 112px label columns on desktop, 80px circles and 96px columns on mobile. A coral ring and bold coral label identify the selected category; aria-pressed exposes selection. Native horizontal scrolling keeps future categories spaced and reachable. Todos uses the existing bag icon. Informational image tags use compact paper-backed rectangles.
+- **Categories and tags:** circular photo highlights use 94px circles and 112px label columns on desktop, 80px circles and 96px columns on mobile. A coral ring and bold coral label identify the selected category; aria-pressed exposes selection. Native horizontal scrolling keeps future categories spaced and reachable. Frames have fixed equal width and height, nonshrinking flex sizing and overflow clipping; absolutely positioned contained images cannot expand grid tracks or overlap labels, including the tall Resina photo. Todos uses the existing bag icon. Informational image tags use compact paper-backed rectangles.
 - **Product cards:** rounded image frame above stacked category, title, summary, price and kit action. Image-origin labels occupy the same position across cards. Detail links sit over the image. Keep prices aligned with tabular numerals and preserve visible illustrative-image labels.
 - **Offer choices:** bordered radio labels; checked choices gain coral borders and a pale warm fill. Selection uses the actual configured offers.
 - **Support and overlays:** a cream payment note, native FAQ disclosures, direct per-kit order links and a floating nonmodal FAQ panel. Contextual support remains available when the floater is hidden.
@@ -168,4 +173,6 @@ All interactive elements share a coral focus outline of (3px), offset by (4px). 
 
 ## Homepage banner
 
-The home opening uses two scroll-snap slides inside a cream frame with (22px) corners and generous (44px 48px) desktop padding. It retains the paper/coral identity and uses the real supplied product photos. Brand display type reaches (78px); product display type reaches (64px). Mobile panels stack copy above a (260px) visual with (30px 24px) padding. Controls sit below the image/copy region: cyclic arrows, count, indicators and pause. Native swipe and keyboard arrows provide manual navigation; inactive slides are inert and hidden from assistive technology. Motion is off when reduced motion is requested, and timers are disposed on route changes.
+Two native scroll-snap slides with 16px outer corners. The first is a Christmas automotive campaign: forest copy surface, gold headline emphasis and CTA, original configured Resina price and exact product route, plus a generated editorial photograph explicitly labeled illustrative. The photo is not a performance demonstration; there is no before/after or delivery-before-Christmas claim. Text remains accessible HTML rather than embedded in the image. Desktop uses 42/58 columns, 40px copy padding and a minimum 500px frame; the whole 3:2 photo remains visible. Mobile stacks copy above the image, with 28/24px padding and 36px headline, then 32px below 360px. Responsive campaign assets are 1200×800 and 639×426.
+
+The second slide presents the brand/payment mechanism with the three original catalog product images, distinct route links and restrained peach backing. Controls remain outside the slide: arrows, indicators, count and pause. Selected dots use a ring, without animating width. Native swipe, keyboard arrows, inactive-slide inert/aria-hidden, reduced motion and route cleanup are preserved. Campaign CTA contrast is 7.99:1; normal red CTA contrast is 5.26:1. Circle category labels and rectangular product image frames remain visually distinct.

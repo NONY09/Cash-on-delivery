@@ -1,6 +1,6 @@
 # Chega — loja com pagamento na entrega
 
-Loja afiliada com Resina Extreme, Joelheira de Compressão e Pente Alisador Portátil, com ofertas reais da Logzz. Nome Chega. aprovado, banner rotativo, catálogo público, busca e categorias, página de produto, pedidos individuais por produto, sem carrinho, kits específicos por oferta, FAQ em formato de conversa, suporte WhatsApp e telas de conta. Sem etapa de build: o SDK oficial do Supabase 2.117.2 é servido localmente em `vendor/`, com versão, lockfile, origem e licença registrados.
+Loja afiliada com Resina Extreme, Joelheira de Compressão e Pente Alisador Portátil, com ofertas reais da Logzz. Nome Chega. aprovado, banner natalino rotativo, catálogo público, busca e categorias, página de produto, pedidos individuais por produto, sem carrinho, kits específicos por oferta, FAQ em formato de conversa, suporte WhatsApp e telas de conta. Sem etapa de build: o SDK oficial do Supabase 2.117.2 é servido localmente em `vendor/`, com versão, lockfile, origem e licença registrados.
 
 ## Ver no computador
 Abra `index.html`. Navegação e arquivos são relativos, funcionando também pelo arquivo local. Para um servidor simples opcional, execute `python3 -m http.server 8080` nesta pasta e acesse `http://localhost:8080`.
@@ -24,6 +24,8 @@ Edite `products.js`. Adicione um objeto na lista `products` para cada produto. C
 Preserve o link HTTPS completo de afiliado fornecido para cada oferta, inclusive identificadores e parâmetros. Confira o domínio do parceiro. Não insira senha, segredo, chave privada ou credenciais em nenhum arquivo.
 
 ## Estado desta entrega
+- Campanha de Natal com fotografia ilustrativa identificada, texto em HTML, preço real da Resina e link para escolher o kit. Segundo banner mostra os três produtos e o pagamento na entrega. Paleta reforçada em verde profundo, vermelho e dourado; sem desconto ou prazo inventado.
+- Corrigido o transbordamento da foto vertical da Resina nos destaques: círculos com tamanho fixo e imagem contida, rótulos fora da moldura e cards de produto com imagem inteira em moldura quadrada.
 - Resina Extreme: fotos fornecidas, descrição baseada no rótulo e seis kits de 1 a 6 unidades.
 - Joelheira de Compressão: página própria, imagem principal ilustrativa identificada e duas fotos fornecidas na galeria; kits de 1/2/3/4/6, com preços conferidos de R$ 109,90 / 129,90 / 259,80 / 258,90 / 389,70. Medidas atribuídas ao produtor, sem promessas médicas não comprovadas.
 - Pente Alisador Portátil: duas imagens originais fornecidas, sem geração de imagem nova; kits de 1/2/4 a R$ 129,99 / 199,99 / 359,99. Cores exibidas nas imagens dependem da disponibilidade da oferta.
@@ -63,7 +65,7 @@ A organização permaneceu Free, sem novo projeto, branch paga ou serviço pago.
 Limites e entrega de e-mail/SMS dependem de serviços externos e podem mudar. Acompanhar Usage no painel; o frontend não possui acesso às métricas administrativas nem aciona upgrade automático. Links de documentação: https://supabase.com/pricing ; https://supabase.com/docs/guides/auth/auth-smtp ; https://supabase.com/docs/guides/auth/rate-limits
 
 ## Imagens, vídeo e fontes
-Origem das imagens, prompt final e conferência das ofertas: `assets/resina/SOURCE.md`, `assets/joelheira/SOURCE.md` e `assets/pente/SOURCE.md`.
+Origem das imagens, prompt final e conferência das ofertas: `assets/resina/SOURCE.md`, `assets/joelheira/SOURCE.md`, `assets/pente/SOURCE.md` e `assets/campanhas/SOURCE.md`.
 
 Imagem conceitual produzida com a ferramenta integrada de geração de imagens. Prompt final: fotografia de estúdio para catálogo de uma única escova facial oval de silicone coral, sem marca, cerdas detalhadas e botão discreto, fundo pêssego, luz natural suave pela esquerda e sombra pela direita, composição quadrada centralizada, sem textos ou acessórios. Arquivo: `assets/escova-demo.webp`.
 

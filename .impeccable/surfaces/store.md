@@ -2,7 +2,7 @@
 
 ## First-viewport contract
 
-A spacious cream banner begins with a large three-line headline, the explicit payment mechanism, one catalog CTA, and the supplied Resina Extreme product image with a small delivery/payment slip. A second slide highlights the actual product, its minimum configured kit price and supplier image. Native horizontal swipe, arrows, selection indicators and pause give control. Autoplay runs every 6.5 seconds only while visible, unfocused and unhovered, stops after manual navigation, and is disabled for reduced motion. No fictional proof. This is the intended opening composition; viewport visibility has not been verified in a browser.
+A forest-green Christmas campaign opens with “Seu carro no clima do Natal.”, a gold CTA to Resina Extreme, the actual configured minimum kit price and an illustrative campaign photo of a red car in a Brazilian courtyard. The second slide combines “Gostou. Chegou. Pagou.” with the three actual product photos and individual links. No invented discount, countdown, reviews, performance result or Christmas delivery guarantee. Native horizontal swipe, arrows, selection indicators and pause give control. Autoplay remains 6.5 seconds only while visible, unfocused and unhovered; manual navigation stops it and reduced motion disables it. The user-provided screenshot established the category overflow defect; this brief records source changes, not browser QA.
 
 ## Sequence and operation
 
@@ -27,3 +27,6 @@ Joelheira de Compressão has a separate product route, five exact kits (1, 2, 3,
 
 ## Circular categories and third supplied product
 Pente Alisador Portátil adds a separate product route, two original supplier images and three verified kits (1, 2 and 4). No invented technical specifications or reviews. The catalog now has three products across Cuidados automotivos, Movimento e bem-estar and Beleza e cuidados. Category highlights use circular representative images, native horizontal scrolling, labels, aria-pressed selection and Todos. Desktop circles are 94px; mobile circles are 80px with 96px label columns. Search and categories filter the whole catalog before the 12-card rendering batch.
+
+## Fixed photo geometry
+The category frame is a fixed nonshrinking square, with a circular clipped outer edge and contained absolute image. Tall product photos cannot influence grid-track sizing or cover the category labels. Labels stay outside the circle. Product-card images use an independent square rectangular frame and a fully contained absolute image. Only category highlights are circular.
