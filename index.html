@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fffdf9">
+  <meta name="description" content="Conheça a Chega: uma loja com pagamento na entrega. Explore produtos, tire suas dúvidas e confira as condições de cada oferta.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Chega — gostou, chegou, pagou.</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/display.otf" as="font" type="font/otf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="products.js"></script>
+  <script defer src="store.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+  <svg class="svg-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10 9-5M12 12 3 7m9 5v10M7.5 4.5l9 5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M1 5h13v12H1V5Zm13 4h4l4 5v3h-8"/><circle cx="5" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a9 9 0 0 1-9 9c-1.5 0-3-.4-4.3-1L3 21l1.5-4.7A9 9 0 1 1 21 11.5Z"/><path d="M8 11h8m-8 4h5"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M21 11.5a9 9 0 0 1-9 9c-1.5 0-3-.4-4.3-1L3 21l1.5-4.7A9 9 0 1 1 21 11.5Z"/><path d="M8 7.5c-.7 1.5.6 4 2.6 5.8s4.1 2.7 5.3 1.5l.6-1.5-2.4-1.2-1 1c-1.4-.5-2.8-1.8-3.5-3.3l.9-1L9.3 6.8 8 7.5Z"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  </svg>
+  <div class="preview-banner">Prévia da loja <span>·</span> Produto, imagem e preços ilustrativos</div>
+  <header class="site-header">
+    <div class="header-main container">
+      <a class="brand" href="#inicio" aria-label="Chega — página inicial">chega<span class="brand-dot">.</span></a>
+      <form class="search" id="search-form" role="search">
+        <label class="sr-only" for="search-input">Buscar produtos</label>
+        <input id="search-input" type="search" placeholder="O que você está procurando?" autocomplete="off" maxlength="120">
+        <button class="icon-button" type="submit" aria-label="Buscar"><svg class="icon"><use href="#i-search"/></svg></button>
+      </form>
+      <div class="header-actions">
+        <a class="account-link" href="#conta" aria-label="Minha conta"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg><span>Minha conta</span></a>
+        <button class="cart-trigger" type="button" data-action="open-cart" aria-label="Abrir carrinho, vazio"><svg class="icon"><use href="#i-bag"/></svg><span class="cart-label">Carrinho</span><span class="cart-count" id="cart-count">0</span></button>
+      </div>
+    </div>
+    <nav class="header-nav container" aria-label="Navegação principal">
+      <div class="nav-links"><a href="#catalogo">Explorar produtos</a><a href="#como-funciona">Como funciona</a><a href="#ajuda">Dúvidas</a></div>
+      <span class="nav-promise"><svg class="icon small"><use href="#i-box"/></svg>Você paga na entrega</span>
+    </nav>
+  </header>
+  <main id="main" tabindex="-1"></main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><a class="brand" href="#inicio">chega<span class="brand-dot">.</span></a><p>Coisas para o seu dia.<br>Pagamento só na entrega.</p><small>Nome provisório · loja em demonstração.</small></div>
+      <div><h2>Por aqui</h2><a href="#catalogo">Produtos</a><a href="#como-funciona">Como funciona</a><a href="#conta">Minha conta</a></div>
+      <div><h2>Precisou? Fale com a gente.</h2><a data-wa="Olá! Quero tirar uma dúvida sobre a loja." class="footer-wa"><svg class="icon"><use href="#i-wa"/></svg>(81) 99688-1704</a><a href="#ajuda">Perguntas frequentes</a></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="year"></span> Chega · prévia</span><div><a href="#privacidade">Privacidade</a><a href="#termos">Condições de compra</a><a href="#trocas">Trocas e atendimento</a></div></div>
+  </footer>
+  <a class="wa-float" data-wa="Olá! Quero saber mais sobre os produtos e o pagamento na entrega." aria-label="Falar com suporte no WhatsApp"><svg class="icon"><use href="#i-wa"/></svg><span>Precisa de ajuda?</span></a>
+  <dialog id="cart-dialog" class="cart-dialog" aria-labelledby="cart-title">
+    <div class="drawer-head"><div><h2 id="cart-title">Seu carrinho</h2><p>Um produto por pedido. Simples assim.</p></div><button type="button" class="icon-button" data-action="close-cart" aria-label="Fechar carrinho"><svg class="icon"><use href="#i-close"/></svg></button></div>
+    <p id="cart-status" class="sr-only" role="status" aria-live="polite"></p>
+    <div id="cart-content"></div>
+  </dialog>
+  <aside id="chat-panel" class="chat-panel" aria-labelledby="chat-title" hidden>
+    <div class="drawer-head"><div><h2 id="chat-title">Vamos tirar sua dúvida?</h2><p>Respostas prontas, sem espera.</p></div><button class="icon-button" data-action="close-chat" type="button" aria-label="Fechar ajuda"><svg class="icon"><use href="#i-close"/></svg></button></div>
+    <div class="chat-messages" id="chat-messages" role="log" aria-live="polite" aria-relevant="additions"></div>
+    <div id="chat-questions" class="chat-questions"></div>
+    <a class="chat-human" data-wa="Olá! Minha dúvida não foi respondida na loja. Pode me ajudar?"><svg class="icon"><use href="#i-wa"/></svg>Prefiro falar com uma pessoa</a>
+  </aside>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="no-script">Ative o JavaScript para explorar esta prévia. Para atendimento, fale pelo WhatsApp: (81) 99688-1704.</div></noscript>
+</body>
+</html>

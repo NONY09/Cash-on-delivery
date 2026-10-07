@@ -1,0 +1,8 @@
+Asset: escova-demo.webp
+Purpose: conceptual image for the demo product, not an actual product offer.
+Tool: built-in image generation.
+Original generation: exec-e93b487d-e447-47a4-ae94-99b46228cc72.png
+Postprocessing: resize to 1000 x 1000, WebP quality 88. No subject edits.
+
+Exact generation prompt:
+Use case: product-mockup. Create a premium ecommerce catalog studio photograph of a single unbranded soft coral pink silicone oval facial cleansing brush, small handheld palm sized brush, finely detailed silicone bristles and a subtle recessed power button at its lower front. Standing at a slight diagonal on a warm pale peach solid seamless backdrop, soft directional daylight from upper left, realistic long soft shadow to lower right, subtle material texture. Composition square, product centered and taking 70 percent height, tasteful beauty brand editorial art direction. No words, no labels, no logos, no additional products, no watermarks. This is a clearly conceptual product image for a demo ecommerce store, not an actual commercial offer.
