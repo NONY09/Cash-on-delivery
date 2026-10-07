@@ -84,6 +84,40 @@ window.CHEGA_CONFIG = {
       { question: 'Como funciona o ajuste?', answer: 'As imagens fornecidas mostram um corpo em tecido elástico e faixas para ajuste ao redor da joelheira. Siga as instruções de uso e conservação que acompanham o produto.' },
       { question: 'Qual é a garantia?', answer: 'O produtor informa garantia de 7 dias. Consulte as condições da oferta e os canais do produtor antes de confirmar seu pedido.' }
     ]
+  }, {
+    id: 'pente-alisador-portatil',
+    name: 'Pente Alisador Portátil',
+    category: 'Beleza e cuidados',
+    image: 'assets/pente/produto.webp',
+    imageAlt: 'Material fornecido: pente alisador portátil com tampa, em rosa, verde e lilás, ao lado de uma modelo',
+    images: [
+      { src: 'assets/pente/produto.webp', thumbnail: 'assets/pente/produto-thumb.webp', alt: 'Imagem fornecida do pente alisador portátil em diferentes cores, aberto e com tampa' },
+      { src: 'assets/pente/detalhes.webp', thumbnail: 'assets/pente/detalhes-thumb.webp', alt: 'Imagem fornecida: detalhes do pente lilás, variações de cor e demonstração de uso' }
+    ],
+    demo: false,
+    summary: 'Um formato compacto para os retoques do dia.',
+    description: 'Pente alisador portátil em formato compacto, com tampa conforme as imagens fornecidas. Conheça os detalhes do modelo e escolha o kit para sua rotina. As fotos apresentam variações de cor; confirme a disponibilidade e o conteúdo da oferta antes de pedir.',
+    warranty: 'Consulte as condições de garantia, troca e devolução apresentadas na oferta da Logzz.',
+    details: [
+      ['Produto', 'Pente Alisador Portátil'],
+      ['Formato', 'Compacto, com tampa, conforme o material fornecido'],
+      ['Cores nas imagens', 'Rosa, verde e lilás; confirme a disponibilidade na oferta'],
+      ['Quantidades', 'Kits de 1, 2 ou 4 unidades'],
+      ['Conteúdo do kit', 'A quantidade escolhida de pentes; confira acessórios e demais itens na oferta'],
+      ['Uso e cuidados', 'Siga as instruções de uso e conservação que acompanham o produto']
+    ],
+    // Valores conferidos nos checkouts originais em 07/10/2026 (America/Sao_Paulo).
+    offers: [
+      { id: 'pente-1', label: '1 unidade', quantity: 1, priceCents: 12999, checkoutUrl: 'https://entrega.logzz.com.br/pay/memvwoyov/1-pente-alisador-portatil---12999---eg' },
+      { id: 'pente-2', label: '2 unidades', quantity: 2, priceCents: 19999, checkoutUrl: 'https://entrega.logzz.com.br/pay/memvwoyov/kit-2-pente-alisador-portatil---19999---eg' },
+      { id: 'pente-4', label: '4 unidades', quantity: 4, priceCents: 35999, checkoutUrl: 'https://entrega.logzz.com.br/pay/memvwoyov/kit-4-pentes-alisador---35999---eg' }
+    ],
+    faq: [
+      { question: 'Posso escolher a cor?', answer: 'As imagens fornecidas mostram rosa, verde e lilás. Confira no checkout ou com o atendimento quais cores estão disponíveis e como a escolha é feita antes de confirmar o pedido.' },
+      { question: 'O que vem no kit?', answer: 'Você escolhe 1, 2 ou 4 unidades do pente. Acessórios e demais itens devem ser conferidos na descrição da oferta e no resumo do pedido da Logzz.' },
+      { question: 'Onde vejo as condições de entrega?', answer: 'Escolha seu kit e consulte o CEP no checkout da Logzz para ver disponibilidade, data e valor final antes de confirmar. O pagamento é na entrega, conforme as condições da oferta.' },
+      { question: 'Como usar e conservar?', answer: 'Siga as instruções que acompanham o modelo adquirido. Para dúvidas sobre alimentação, temperatura, compatibilidade ou itens incluídos, confirme os detalhes da oferta com o atendimento antes de pedir.' }
+    ]
   }],
   faq: [
     { question: 'Quando eu pago?', answer: 'Você paga na entrega do produto, conforme as condições da oferta na Logzz. A loja não pede pagamento antecipado. Confira o resumo antes de confirmar seu pedido.' },

@@ -1,6 +1,6 @@
 # Chega — loja com pagamento na entrega
 
-Loja afiliada com Resina Extreme e Joelheira de Compressão e ofertas reais da Logzz. Nome Chega. aprovado, banner rotativo, catálogo público, busca e categorias, página de produto, pedidos individuais por produto, sem carrinho, kits específicos por oferta, FAQ em formato de conversa, suporte WhatsApp e telas de conta. Sem etapa de build: o SDK oficial do Supabase 2.117.2 é servido localmente em `vendor/`, com versão, lockfile, origem e licença registrados.
+Loja afiliada com Resina Extreme, Joelheira de Compressão e Pente Alisador Portátil, com ofertas reais da Logzz. Nome Chega. aprovado, banner rotativo, catálogo público, busca e categorias, página de produto, pedidos individuais por produto, sem carrinho, kits específicos por oferta, FAQ em formato de conversa, suporte WhatsApp e telas de conta. Sem etapa de build: o SDK oficial do Supabase 2.117.2 é servido localmente em `vendor/`, com versão, lockfile, origem e licença registrados.
 
 ## Ver no computador
 Abra `index.html`. Navegação e arquivos são relativos, funcionando também pelo arquivo local. Para um servidor simples opcional, execute `python3 -m http.server 8080` nesta pasta e acesse `http://localhost:8080`.
@@ -19,13 +19,15 @@ As atualizações devem ser enviadas para esse repositório, conectado ao Netlif
 O arquivo `_headers` cobre o upload manual. O fluxo principal é GitHub → Netlify. A prévia está marcada para não ser indexada.
 
 ## Trocar produtos e ofertas
-Edite `products.js`. Adicione um objeto na lista `products` para cada produto. Cada produto precisa de um `id` único, nome, categoria, imagem local, resumo, descrição e ofertas verificadas. `images`, `details`, `faq` e `video` são opcionais; cada vídeo deve trazer seu próprio título, descrição e `visualDescription` conferida. Os preços são inteiros em centavos: `9990` representa R$ 99,90. Cada entrada de `offers` corresponde a um kit fixo, com sua própria quantidade, valor e `checkoutUrl` de afiliado. Cadastre somente kits realmente disponíveis. Cada kit abre seu link próprio na Logzz. Não existe carrinho nem soma de produtos diferentes. O catálogo usa toda a largura disponível, três colunas no desktop, duas no tablet e uma no celular, com lotes de 12 produtos e filtros por categoria. Cada card abre sua página para escolher o kit.
+Edite `products.js`. Adicione um objeto na lista `products` para cada produto. Cada produto precisa de um `id` único, nome, categoria, imagem local, resumo, descrição e ofertas verificadas. `images`, `details`, `faq` e `video` são opcionais; cada vídeo deve trazer seu próprio título, descrição e `visualDescription` conferida. Os preços são inteiros em centavos: `9990` representa R$ 99,90. Cada entrada de `offers` corresponde a um kit fixo, com sua própria quantidade, valor e `checkoutUrl` de afiliado. Cadastre somente kits realmente disponíveis. Cada kit abre seu link próprio na Logzz. Não existe carrinho nem soma de produtos diferentes. O catálogo usa toda a largura disponível, três colunas no desktop, duas no tablet e uma no celular, com lotes de 12 produtos e filtros por categoria em círculos com fotos. As categorias são derivadas dos produtos cadastrados, com rolagem horizontal no celular e opção Todos. Cada card abre sua página para escolher o kit.
 
 Preserve o link HTTPS completo de afiliado fornecido para cada oferta, inclusive identificadores e parâmetros. Confira o domínio do parceiro. Não insira senha, segredo, chave privada ou credenciais em nenhum arquivo.
 
 ## Estado desta entrega
 - Resina Extreme: fotos fornecidas, descrição baseada no rótulo e seis kits de 1 a 6 unidades.
 - Joelheira de Compressão: página própria, imagem principal ilustrativa identificada e duas fotos fornecidas na galeria; kits de 1/2/3/4/6, com preços conferidos de R$ 109,90 / 129,90 / 259,80 / 258,90 / 389,70. Medidas atribuídas ao produtor, sem promessas médicas não comprovadas.
+- Pente Alisador Portátil: duas imagens originais fornecidas, sem geração de imagem nova; kits de 1/2/4 a R$ 129,99 / 199,99 / 359,99. Cores exibidas nas imagens dependem da disponibilidade da oferta.
+- Categorias em círculos: Cuidados automotivos, Movimento e bem-estar e Beleza e cuidados; filtro pelo toque, indicação da seleção e opção Todos.
 - Galeria com rolagem por toque, miniaturas e navegação por teclado; vídeo do fornecedor carregado somente ao abrir a seção de demonstração.
 - Vídeo otimizado para celular, com controles, sem reprodução automática e com descrição visual adjacente. O áudio original foi preservado; legendas de fala ainda dependem de uma transcrição conferida.
 - Ofertas conferidas nos links enviados: R$ 99,99 / 124,99 / 147,00 / 197,00 / 180,00 / 210,00. Uma unidade no link enviado custa R$ 99,99, embora o texto inicial mencionasse R$ 89,99. Os links originais de afiliado estão preservados.
@@ -61,14 +63,14 @@ A organização permaneceu Free, sem novo projeto, branch paga ou serviço pago.
 Limites e entrega de e-mail/SMS dependem de serviços externos e podem mudar. Acompanhar Usage no painel; o frontend não possui acesso às métricas administrativas nem aciona upgrade automático. Links de documentação: https://supabase.com/pricing ; https://supabase.com/docs/guides/auth/auth-smtp ; https://supabase.com/docs/guides/auth/rate-limits
 
 ## Imagens, vídeo e fontes
-Origem das imagens, prompt final e conferência das ofertas: `assets/resina/SOURCE.md` e `assets/joelheira/SOURCE.md`.
+Origem das imagens, prompt final e conferência das ofertas: `assets/resina/SOURCE.md`, `assets/joelheira/SOURCE.md` e `assets/pente/SOURCE.md`.
 
 Imagem conceitual produzida com a ferramenta integrada de geração de imagens. Prompt final: fotografia de estúdio para catálogo de uma única escova facial oval de silicone coral, sem marca, cerdas detalhadas e botão discreto, fundo pêssego, luz natural suave pela esquerda e sombra pela direita, composição quadrada centralizada, sem textos ou acessórios. Arquivo: `assets/escova-demo.webp`.
 
 Prompt completo e origem registrados em `assets/IMAGE_SOURCE.txt`. Fontes URW Gothic e Nimbus Sans servidas localmente. Licenças e avisos em `assets/fonts/LICENSE.txt`.
 
 ## Verificação
-Execute `node tests/catalog.test.cjs`, `node tests/auth.test.cjs` e `node tests/banner.test.cjs` para testar o catálogo e os links sem instalar dependências. As 25 entradas sintéticas existem somente na memória do teste, não na loja publicada.
+Execute `node tests/catalog.test.cjs`, `node tests/auth.test.cjs` e `node tests/banner.test.cjs` para testar o catálogo e os links sem instalar dependências. O teste usa 27 produtos: os três reais e 24 entradas sintéticas somente na memória, não na loja publicada.
 
 A entrega inclui validação de sintaxe JavaScript, caminhos dos arquivos, busca/categorias com vários produtos, carregamento em lotes, links de cada kit e ausência de carrinho e bloqueio de produtos de demonstração. Capturas e testes em navegador não foram realizados neste ambiente; revise no Netlify em celular e desktop antes de abrir as vendas.
 

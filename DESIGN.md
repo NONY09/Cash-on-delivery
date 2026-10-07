@@ -71,10 +71,11 @@ components:
   button-secondary-hover:
     backgroundColor: "{colors.cream}"
   category-active:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
-    rounded: "{rounded.control}"
-    padding: "10px 16px"
+    backgroundColor: "{colors.cream}"
+    textColor: "{colors.coral}"
+    borderColor: "{colors.coral}"
+    rounded: "50%"
+    padding: "4px"
   search:
     backgroundColor: "{colors.cream}"
     textColor: "{colors.ink}"
@@ -114,7 +115,7 @@ Coral marks primary actions, headline emphasis, focus outlines and selected offe
 
 ### Neutral
 
-Ink anchors headings and selected category controls. Muted carries body copy and secondary information. Paper is the default canvas; cream distinguishes supporting sections. Line separates controls and content. White is used on coral buttons and badges.
+Ink anchors headings and category labels; coral identifies the selected category. Muted carries body copy and secondary information. Paper is the default canvas; cream distinguishes supporting sections. Line separates controls and content. White is used on coral buttons and badges.
 
 ## Typography
 
@@ -143,8 +144,8 @@ Controls share gently curved corners; tags and small overlays are tighter, image
 - **Buttons:** bold body type, a minimum height of (52px), coral primary and outlined secondary variants. Primary hover darkens; secondary hover gains cream. Disabled actions use muted warm fills. Text actions remain plain and underline on hover.
 - **Inputs:** cream search enclosure with an unboxed field; account fields and offer selects use paper surfaces and line borders. Account fields have a minimum height of (48px). The prototype's disabled account presentation does not imply live authentication.
 - **Navigation:** plain body links, an oversized display wordmark and compact account access. Mobile search moves below the wordmark and actions. Link hover underlines rather than adding decorative motion.
-- **Categories and tags:** categories use bordered controls; the active category switches to ink with paper text. Informational image tags use compact paper-backed rectangles.
-- **Product cards:** rounded image frame above an unboxed title-and-price row. Detail links sit over the image. Keep prices aligned with tabular numerals and preserve visible demo status.
+- **Categories and tags:** circular photo highlights use 94px circles and 112px label columns on desktop, 80px circles and 96px columns on mobile. A coral ring and bold coral label identify the selected category; aria-pressed exposes selection. Native horizontal scrolling keeps future categories spaced and reachable. Todos uses the existing bag icon. Informational image tags use compact paper-backed rectangles.
+- **Product cards:** rounded image frame above stacked category, title, summary, price and kit action. Image-origin labels occupy the same position across cards. Detail links sit over the image. Keep prices aligned with tabular numerals and preserve visible illustrative-image labels.
 - **Offer choices:** bordered radio labels; checked choices gain coral borders and a pale warm fill. Selection uses the actual configured offers.
 - **Support and overlays:** a cream payment note, native FAQ disclosures, direct per-kit order links and a floating nonmodal FAQ panel. Contextual support remains available when the floater is hidden.
 
