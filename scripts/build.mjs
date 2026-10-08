@@ -1,0 +1,42 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url);
+const {render}=require('./render.cjs'),{validate,load}=require('./validate.cjs');
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),dist=path.join(root,'dist');
+const {config,site}=load();const errors=validate(config,site);if(errors.length)throw Error(errors.join('\n'));
+fs.rmSync(dist,{recursive:true,force:true});fs.mkdirSync(dist,{recursive:true});
+const runtime=['app.js','products.js','store.js','site-config.js','routes.js','analytics.js','purchase-dock.js','styles.css','banner.js','seasonal.js','auth.js','auth-config.js'];
+for(const file of runtime)fs.copyFileSync(path.join(root,file),path.join(dist,file));
+fs.cpSync(path.join(root,'assets'),path.join(dist,'assets'),{recursive:true,filter:src=>!src.endsWith('.md')&&!src.endsWith('.txt')&&!src.endsWith('.json')&&!src.endsWith('.otf')});
+// Keep required font licenses; do not publish source docs, tests, SQL or prompts.
+fs.copyFileSync(path.join(root,'assets/fonts/LICENSE.txt'),path.join(dist,'assets/fonts/LICENSE.txt'));
+fs.mkdirSync(path.join(dist,'vendor'));fs.copyFileSync(path.join(root,'vendor/supabase.js'),path.join(dist,'vendor/supabase.js'));fs.copyFileSync(path.join(root,'vendor/SUPABASE_LICENSE.txt'),path.join(dist,'vendor/SUPABASE_LICENSE.txt'));
+const escape=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let template=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const routes=['/',...config.products.map(p=>'/produto/'+p.id+'/'),'/privacidade/','/termos/','/trocas/','/conta/'];
+for(const route of routes){
+ const result=render(route);const product=config.products.find(p=>route==='/produto/'+p.id+'/');
+ const description=product?product.summary+' Confira os kits e pague na entrega.':'Produtos para sua rotina. Escolha seu kit, consulte a entrega e pague ao receber.';
+ const image=product?product.image:'assets/campanhas/resina-editorial.webp';
+ const url=site.origin+route;
+ const meta=`<link rel="canonical" href="${escape(url)}"><meta property="og:type" content="${product?'product':'website'}"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="Chega."><meta property="og:title" content="${escape(result.title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${escape(url)}"><meta property="og:image" content="${escape(site.origin+'/'+image)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(result.title)}"><meta name="twitter:description" content="${escape(description)}"><meta name="twitter:image" content="${escape(site.origin+'/'+image)}">`;
+ let html=template.replace(/<title>[^<]*<\/title>/,`<title>${escape(result.title)}</title>`).replace(/<meta name="description"[^>]*>/,`<meta name="description" content="${escape(description)}">`).replace('</head>',meta+'\n</head>').replace('<main id="main" tabindex="-1"></main>',`<main id="main" tabindex="-1">${result.html}</main>`).replace('<body>','<body'+(product?' class="product-route"':'')+'>');
+ if(route==='/conta/')html=html.replace('content="index, follow"','content="noindex, nofollow"');
+ if(!site.seasonalTheme)html=html.replace(/<div class="holiday-canopy[^>]*>.*?<\/div>/g,'').replace(/<button[^>]*data-holiday-toggle[^>]*>.*?<\/button>/g,'');
+ const merchant=site.merchant;const info=[merchant.legalName,merchant.registration,merchant.address,merchant.email,merchant.serviceHours].filter(Boolean).map(v=>'<p>'+escape(v)+'</p>').join('');
+ html=html.replace('<div id="merchant-details"></div>','<div id="merchant-details">'+info+'</div>');
+ html=html.replace(/<a([^>]*data-wa="([^"]*)"[^>]*)>/g, (tag,attrs,message) => attrs.includes('href=') ? tag : '<a'+attrs+' href="https://wa.me/'+config.whatsapp+'?text='+encodeURIComponent(message.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;/g,"'"))+'" target="_blank" rel="noopener noreferrer">');
+ const target=path.join(dist,route.replace(/^\//,''),'index.html');fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,html);
+}
+const missing=render('/missing/');fs.writeFileSync(path.join(dist,'404.html'),template.replace('<main id="main" tabindex="-1"></main>','<main id="main" tabindex="-1">'+missing.html+'</main>').replace('content="index, follow"','content="noindex, nofollow"'));
+fs.writeFileSync(path.join(dist,'robots.txt'),'User-agent: *\nAllow: /\nDisallow: /conta/\nSitemap: '+site.origin+'/sitemap.xml\n');
+fs.writeFileSync(path.join(dist,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+routes.filter(r=>r!=='/conta/').map(r=>'<url><loc>'+escape(site.origin+r)+'</loc></url>').join('')+'</urlset>');
+let headers=fs.readFileSync(path.join(root,'_headers'),'utf8');
+if(site.analytics.googleMeasurementId)headers=headers.replace("script-src 'self'", "script-src 'self' https://www.googletagmanager.com").replace("connect-src 'self'", "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com");
+if(site.analytics.metaPixelId)headers=headers.replace("script-src 'self'", "script-src 'self' https://connect.facebook.net").replace("connect-src 'self'", "connect-src 'self' https://www.facebook.com").replace("img-src 'self'", "img-src 'self' https://www.facebook.com");
+fs.writeFileSync(path.join(dist,'_headers'),headers+'\n/assets/*\n  Cache-Control: public, max-age=86400\n');
+const pending=[];if(!site.merchant.legalName||!site.merchant.registration||!site.merchant.address)pending.push('Identificação e endereço do responsável pelo catálogo');if(!site.analytics.metaPixelId&&!site.analytics.googleMeasurementId)pending.push('IDs de medição e configuração correspondente na Logzz');pending.push('Especificações não fornecidas do pente; material real de avaliação/demonstração dos demais produtos');
+fs.writeFileSync(path.join(root,'READY.md'),'# Pendências externas\n\nDados e acessos externos ainda necessários; estes dados não foram inventados:\n\n'+pending.map(x=>'- '+x).join('\n')+'\n\nSMS/cadastro continuam pausados, conforme dependências de entrega e segurança. Nenhum pedido de teste foi enviado. Nenhuma revisão visual em navegador foi realizada neste ambiente.\n');
+console.log('PASS: '+routes.length+' páginas estáticas, metadados, sitemap e pacote público gerados.');

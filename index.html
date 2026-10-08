@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#154b40">
   <meta name="description" content="Conheça a Chega: uma loja com pagamento na entrega. Explore produtos, tire suas dúvidas e confira as condições de cada oferta.">
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="index, follow">
   <title>Chega — gostou, chegou, pagou.</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/display.otf" as="font" type="font/otf" crossorigin>
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="products.js"></script>
-  <script defer src="store.js"></script>
-  <script defer src="vendor/supabase.js"></script>
-  <script defer src="auth-config.js"></script>
-  <script defer src="auth.js"></script>
-  <script defer src="banner.js"></script>
-  <script defer src="seasonal.js"></script>
-  <script defer src="app.js"></script>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/display.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/site-config.js"></script>
+  <script defer src="/routes.js"></script>
+  <script defer src="/analytics.js"></script>
+  <script defer src="/purchase-dock.js"></script>
+  <script defer src="/products.js"></script>
+  <script defer src="/store.js"></script>
+  <script defer src="/banner.js"></script>
+  <script defer src="/seasonal.js"></script>
+  <script defer src="/app.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Pular para o conteúdo</a>
@@ -39,32 +40,30 @@
   </svg>
   <div class="preview-banner"><div class="container"><p>Pague somente na entrega <span>·</span> <span class="preview-coverage">Consulte seu CEP na oferta</span></p><button type="button" class="holiday-toggle" data-holiday-toggle aria-pressed="false" aria-label="Pausar efeitos decorativos de Natal">Pausar efeitos</button></div></div>
   <header class="site-header">
-    <div class="holiday-canopy" data-holiday-scene aria-hidden="true"><img src="assets/campanhas/guirlanda.webp" alt="" width="1100" height="367" decoding="async"></div>
+    <div class="holiday-canopy" data-holiday-scene aria-hidden="true"><img src="/assets/campanhas/guirlanda.webp" alt="" width="1100" height="367" decoding="async"></div>
     <div class="header-main container">
-      <a class="brand" href="#inicio" aria-label="Chega — página inicial">chega<span class="brand-dot">.</span></a>
+      <a class="brand" href="/" aria-label="Chega — página inicial">chega<span class="brand-dot">.</span></a>
       <form class="search" id="search-form" role="search">
         <label class="sr-only" for="search-input">Buscar produtos</label>
         <input id="search-input" type="search" placeholder="O que você está procurando?" autocomplete="off" maxlength="120">
         <button class="icon-button" type="submit" aria-label="Buscar"><svg class="icon"><use href="#i-search"/></svg></button>
       </form>
-      <div class="header-actions">
-        <a class="account-link" href="#conta" aria-label="Minha conta"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg><span>Minha conta</span></a>
-      </div>
+<a class="header-support" data-wa="Olá! Quero tirar uma dúvida sobre um produto.">Atendimento</a>
     </div>
     <nav class="header-nav container" aria-label="Navegação principal">
-      <div class="nav-links"><a href="#catalogo">Explorar produtos</a><a href="#como-funciona">Como funciona</a><a href="#ajuda">Dúvidas</a></div>
+      <div class="nav-links"><a href="/#catalogo">Explorar produtos</a><a href="/#como-funciona">Como funciona</a><a href="/#ajuda">Dúvidas</a></div>
       <span class="nav-promise"><svg class="icon small"><use href="#i-box"/></svg>Você paga na entrega</span>
     </nav>
   </header>
   <main id="main" tabindex="-1"></main>
   <footer class="site-footer">
-    <div class="holiday-canopy footer-canopy" data-holiday-scene aria-hidden="true"><img src="assets/campanhas/guirlanda.webp" alt="" width="1100" height="367" loading="lazy" decoding="async"></div>
+    <div class="holiday-canopy footer-canopy" data-holiday-scene aria-hidden="true"><img src="/assets/campanhas/guirlanda.webp" alt="" width="1100" height="367" loading="lazy" decoding="async"></div>
     <div class="container footer-grid">
-      <div><a class="brand" href="#inicio">chega<span class="brand-dot">.</span></a><p>Coisas para o seu dia.<br>Pagamento só na entrega.</p><small>Catálogo de afiliados. Pedidos no checkout da Logzz.</small></div>
-      <div><h2>Por aqui</h2><a href="#catalogo">Produtos</a><a href="#como-funciona">Como funciona</a><a href="#conta">Minha conta</a></div>
-      <div><h2>Precisou? Fale com a gente.</h2><a data-wa="Olá! Quero tirar uma dúvida sobre a loja." class="footer-wa"><svg class="icon"><use href="#i-wa"/></svg>(81) 99688-1704</a><a href="#ajuda">Perguntas frequentes</a></div>
+      <div><a class="brand" href="/">chega<span class="brand-dot">.</span></a><p>Coisas para o seu dia.<br>Pagamento só na entrega.</p><small>Catálogo de afiliados. Pedidos no checkout da Logzz.</small></div>
+      <div><h2>Por aqui</h2><a href="/#catalogo">Produtos</a><a href="/#como-funciona">Como funciona</a><a href="/conta/">Acesso à conta</a></div>
+      <div><h2>Precisou? Fale com a gente.</h2><a data-wa="Olá! Quero tirar uma dúvida sobre a loja." class="footer-wa"><svg class="icon"><use href="#i-wa"/></svg>(81) 99688-1704</a><a href="/#ajuda">Perguntas frequentes</a><p class="support-expectation">Envie sua mensagem pelo WhatsApp para dúvidas ou orientação sobre seu pedido.</p><div id="merchant-details"></div></div>
     </div>
-    <div class="container footer-bottom"><span>© <span id="year"></span> Chega</span><div><a href="#privacidade">Privacidade</a><a href="#termos">Condições de compra</a><a href="#trocas">Trocas e atendimento</a></div></div>
+    <div class="container footer-bottom"><span>© <span id="year"></span> Chega</span><div><a href="/privacidade/">Privacidade</a><a href="/termos/">Condições de compra</a><a href="/trocas/">Trocas e atendimento</a><button id="privacy-open" class="text-button" type="button" data-privacy-open hidden>Preferências de privacidade</button></div></div>
   </footer>
   <a class="wa-float" data-wa="Olá! Quero saber mais sobre os produtos e o pagamento na entrega." aria-label="Falar com suporte no WhatsApp"><svg class="icon"><use href="#i-wa"/></svg><span>Precisa de ajuda?</span></a>
   <aside id="chat-panel" class="chat-panel" aria-labelledby="chat-title" hidden>
@@ -73,6 +72,7 @@
     <div id="chat-questions" class="chat-questions"></div>
     <a class="chat-human" data-wa="Olá! Minha dúvida não foi respondida na loja. Pode me ajudar?"><svg class="icon"><use href="#i-wa"/></svg>Prefiro falar com uma pessoa</a>
   </aside>
-  <noscript><div class="no-script">Ative o JavaScript para explorar a loja. Para atendimento, fale pelo WhatsApp: (81) 99688-1704.</div></noscript>
+<aside id="privacy-preferences" class="privacy-preferences" aria-label="Preferências de privacidade" hidden><h2>Sua escolha de privacidade</h2><p>Com sua autorização, os serviços configurados medem visitas e cliques na vitrine e ajudam a avaliar anúncios. Você pode recusar e continuar comprando.</p><p id="privacy-services"></p><a href="/privacidade/">Entenda o uso dos dados</a><div><button type="button" class="button secondary" data-privacy-reject>Recusar opcionais</button><button type="button" class="button primary" data-privacy-accept>Aceitar opcionais</button></div></aside>
+  <noscript><div class="no-script">Você pode conhecer os produtos e abrir as ofertas. Busca, filtros e troca de kit precisam de JavaScript. Atendimento: <a href="https://wa.me/5581996881704">WhatsApp</a>.</div></noscript>
 </body>
 </html>

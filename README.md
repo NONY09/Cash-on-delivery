@@ -1,22 +1,12 @@
 # Chega — loja com pagamento na entrega
 
-Loja afiliada com Resina Extreme, Joelheira de Compressão e Pente Alisador Portátil, com ofertas reais da Logzz. Nome Chega. aprovado, banner natalino rotativo, catálogo público, busca e categorias, página de produto, pedidos individuais por produto, sem carrinho, kits específicos por oferta, FAQ em formato de conversa, suporte WhatsApp e telas de conta. Sem etapa de build: o SDK oficial do Supabase 2.117.2 é servido localmente em `vendor/`, com versão, lockfile, origem e licença registrados.
+Loja afiliada com Resina Extreme, Joelheira de Compressão e Pente Alisador Portátil, com ofertas reais da Logzz. Nome Chega. aprovado, banner natalino rotativo, catálogo público, busca e categorias, página de produto, pedidos individuais por produto, sem carrinho, kits específicos por oferta, FAQ em formato de conversa, suporte WhatsApp e telas de conta. Build estático com Node, sem dependências novas. O SDK oficial do Supabase 2.117.2 é servido localmente em `vendor/` e carregado somente na área de conta, com versão, lockfile, origem e licença registrados.
 
-## Ver no computador
-Abra `index.html`. Navegação e arquivos são relativos, funcionando também pelo arquivo local. Para um servidor simples opcional, execute `python3 -m http.server 8080` nesta pasta e acesse `http://localhost:8080`.
+## Executar e publicar
 
-## Repositório e publicação automática
-Repositório principal: https://github.com/NONY09/Cash-on-delivery
-Branch de trabalho e publicação: `main`.
+Execute `node scripts/build.mjs`. O comando valida produtos e gera oito páginas estáticas, metadados, sitemap, cabeçalhos e arquivos públicos em `dist/`. Não instala dependências nem acessa rede ou banco. Para servir uma prévia local, use a pasta `dist/`; abrir o HTML diretamente não reproduz rotas absolutas.
 
-As atualizações devem ser enviadas para esse repositório, conectado ao Netlify pelo usuário. A configuração está em `netlify.toml`: sem comando de build, diretório de publicação `.`. Os arquivos da loja ficam na raiz do repositório. A confirmação de cada deploy depende do status retornado pelo Netlify; um commit no GitHub, por si só, não comprova publicação bem-sucedida.
-
-## Upload manual opcional da cópia ZIP
-1. Extraia o ZIP.
-2. Faça o upload da pasta `chega-loja`, a pasta que contém `index.html`, no deploy manual do Netlify.
-3. Se usar Git, deixe o comando de build vazio e o diretório de publicação como `.`.
-
-O arquivo `_headers` cobre o upload manual. O fluxo principal é GitHub → Netlify. A prévia está marcada para não ser indexada.
+O repositório NONY09/Cash-on-delivery, branch main, está conectado ao Netlify. `netlify.toml` define build `node scripts/build.mjs`, Node 22 e publicação `dist`. Para upload manual, envie somente `dist/`. O commit sozinho não comprova deployment; confira os arquivos publicados. Source, testes, SQL e prompts não entram no pacote público.
 
 ## Trocar produtos e ofertas
 Edite `products.js`. Adicione um objeto na lista `products` para cada produto. Cada produto precisa de um `id` único, nome, categoria, imagem local, resumo, descrição e ofertas verificadas. `images`, `details`, `faq` e `video` são opcionais; cada vídeo deve trazer seu próprio título, descrição e `visualDescription` conferida. Os preços são inteiros em centavos: `9990` representa R$ 99,90. Cada entrada de `offers` corresponde a um kit fixo, com sua própria quantidade, valor e `checkoutUrl` de afiliado. Cadastre somente kits realmente disponíveis. Cada kit abre seu link próprio na Logzz. Não existe carrinho nem soma de produtos diferentes. O catálogo usa toda a largura disponível, três colunas no desktop, duas no tablet e uma no celular, com lotes de 12 produtos e filtros por categoria em círculos com fotos. As categorias são derivadas dos produtos cadastrados, com rolagem horizontal no celular e opção Todos. Cada card abre sua página para escolher o kit.
@@ -35,10 +25,10 @@ Preserve o link HTTPS completo de afiliado fornecido para cada oferta, inclusive
 - Galeria com rolagem por toque, miniaturas e navegação por teclado; vídeo do fornecedor carregado somente ao abrir a seção de demonstração.
 - Vídeo otimizado para celular, com controles, sem reprodução automática e com descrição visual adjacente. O áudio original foi preservado; legendas de fala ainda dependem de uma transcrição conferida.
 - Ofertas conferidas nos links enviados: R$ 99,99 / 124,99 / 147,00 / 197,00 / 180,00 / 210,00. Uma unidade no link enviado custa R$ 99,99, embora o texto inicial mencionasse R$ 89,99. Os links originais de afiliado estão preservados.
-- O botão “Pedir” muda para o link exato do kit escolhido e abre o checkout externo da Logzz. Não há carrinho nem seleção persistida. Dados de entrega, cobertura, custos e pagamento são confirmados lá. O carrinho antigo é removido automaticamente.
+- O botão “Continuar com [kit]” muda para o link exato do kit escolhido e abre o checkout externo da Logzz. Não há carrinho nem seleção persistida. Dados de entrega, cobertura, custos e pagamento são confirmados lá. O carrinho antigo é removido automaticamente.
 - Conta, Auth, SMS, CAPTCHA e alterações no Supabase foram explicitamente adiados pelo usuário nesta etapa visual; a integração e seus bloqueios existentes permanecem.
 - Supabase Auth integrado: login, cadastro com confirmação de e-mail, recuperação, perfil, preferências, exportação e exclusão de conta. Cadastro e envio de e-mail ficam pausados até a configuração externa descrita abaixo. SMS permanece desativado. Não são coletados CPF ou endereço aqui.
-- Ajuda utiliza respostas cadastradas e WhatsApp +55 81 99688-1704. Não há API de IA, pixel ou analytics. O backend é usado somente na área de conta.
+- Ajuda utiliza respostas cadastradas e WhatsApp +55 81 99688-1704. Não há API de IA; pixel e analytics estão preparados, sem IDs e desativados. O backend é usado somente na área de conta.
 - O vídeo é identificado como material do fornecedor, sem depoimentos, avaliações ou números de vendas inventados.
 - Textos de privacidade, termos e trocas descrevem o funcionamento atual. Identificação definitiva da loja e revisão das condições da operação continuam pendentes.
 
@@ -52,7 +42,7 @@ Foram aplicados os snapshots em `supabase/sql/chega_account_setup.sql` e `chega_
 A Edge Function `delete-account` está implantada, com `verify_jwt = true`, validação adicional pelo Auth e perfil, nova confirmação de senha, revogação global de sessões e exclusão em cascata. A chave administrativa existe somente no ambiente da função; não é enviada ao site. O corpo nunca aceita um ID de usuário escolhido pelo cliente.
 
 Antes de liberar cadastros públicos:
-1. No Supabase → Authentication → URL Configuration, configurar **Site URL**: `https://cchega.netlify.app/`; **Redirect URLs**: `https://cchega.netlify.app/#conta`. Esse endereço foi informado pelo usuário. Evitar curingas gerais. A configuração no painel ainda não foi verificada.
+1. No Supabase → Authentication → URL Configuration, configurar **Site URL**: `https://cchega.netlify.app/`; **Redirect URLs**: `https://cchega.netlify.app/conta/` (e o endereço antigo `https://cchega.netlify.app/#conta` enquanto houver links antigos). Esse endereço foi informado pelo usuário. Evitar curingas gerais. A configuração no painel ainda não foi verificada.
 2. Configurar SMTP de um serviço autorizado. O SMTP padrão do Supabase aceita somente endereços da equipe e até 2 mensagens/hora; não serve para clientes. Manter confirmação de e-mail ativada e troca segura de e-mail. Credenciais SMTP devem ficar no painel, nunca no repositório.
 3. Configurar Cloudflare Turnstile no Auth, mantendo a chave secreta somente no painel, e colocar a sitekey pública em `captchaSiteKey`. O widget e o envio de token já estão preparados na criação, login, recuperação, reenvio e confirmação de senha para exclusão. O script do Turnstile só é carregado na área da conta quando houver sitekey configurada. Ajustar a senha mínima no Auth para 12 caracteres e as taxas de envio ao limite do provedor. O mínimo no formulário já é 12; não é uma afirmação sobre a configuração atual do servidor.
 4. Publicar nome/razão social verdadeiro do responsável pelo catálogo, canal de atendimento e revisar a política, inclusive hospedagem internacional nos EUA. Um checkbox não garante conformidade jurídica.
@@ -88,3 +78,17 @@ Cloudflare → Turnstile → Add widget: nome `Chega`, hostname `cchega.netlify.
 Confirmação por e-mail exige SMTP próprio: remetente autorizado/verificado, host, porta, usuário e senha do provedor configurados no painel Supabase. Confirmação por telefone exige provedor SMS compatível (por exemplo Twilio, Vonage ou MessageBird), com custos externos e limites de envio. Não habilitar SMS nem contratar serviço pago automaticamente. Se CMS significar gerenciamento de conteúdo, trata-se de um painel de produtos separado: o catálogo atual é editado em `products.js`, e não há CMS administrativo implantado.
 
 O banner usa `banner.js`, sem bibliotecas novas ou chamadas ao Supabase. Giro a cada 6,5 segundos, pausa, navegação manual, deslize nativo, respeito a movimento reduzido e encerramento dos temporizadores ao sair da página. `seasonal.js` controla apenas o brilho da guirlanda: pausa manual, visibilidade da aba, IntersectionObserver e movimento reduzido; não grava preferências nem dados de cliente. As imagens novas e seus prompts completos estão documentados em `assets/campanhas/SOURCE.md`.
+
+## Atualização de compra e divulgação
+
+As URLs dos produtos são `/produto/resina-extreme/`, `/produto/joelheira-de-compressao/` e `/produto/pente-alisador-portatil/`. Links antigos com fragmento continuam funcionando. Cada página tem HTML de produto antes do JavaScript, canonical e imagem/título de compartilhamento próprios. A loja pode ser indexada; a conta permanece noindex.
+
+Nome/preço acima da galeria no celular; título, CTA e rodapé continuam coerentes com o tema natalino. Dock móvel mantém kit/total/link corretos e respeita ação visível, overlays e teclado. Todas as ofertas e valores foram preservados. Notas de comparação explicam kits de maior quantidade com menor total. Sem JS, links individuais de cada kit estão disponíveis.
+
+Em `site-config.js`, `seasonalTheme` ativa/desativa a decoração. `merchant` aceita dados reais do responsável, endereço, e-mail e horário; só campos preenchidos são exibidos. Não preencher com exemplos. `analytics` aceita IDs válidos da Meta/Google; sem IDs, não há trackers nem aviso de consentimento desnecessário. Depois de configurar, a publicação ajusta CSP somente para os serviços escolhidos.
+
+Medição opcional após autorização: `page_view`, `view_item`, `select_item`, `checkout_redirect`, `contact_click`. Nenhum evento de Purchase/venda é emitido. Pedido, entrega, pagamento e comissão precisam ser verificados na Logzz; atribuição externa não está conectada por este adapter.
+
+Os SDKs de conta são carregados somente em `/conta/`. Cadastro, SMS e recuperação configurada permanecem condicionados aos provedores e allowlist do Supabase; incluir `/conta/` nos redirects antes de liberar os fluxos. Não há novas tabelas, pedidos copiados ou métricas no Supabase.
+
+Checks adicionais: `node tests/release.test.cjs`, `node tests/analytics.test.cjs`, `node tests/dock.test.cjs`. Pendências de dados/acesso estão em READY.md. Fontes WOFF2 derivadas dos OTF licenciados, preservando família e glifos.

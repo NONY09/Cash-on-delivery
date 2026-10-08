@@ -61,6 +61,6 @@ f = fixture(); f.motion.matches = true; f.motion.emit('change'); assert.equal(f.
 f = fixture(false, 3);
 f.tick(); assert.equal(f.track.scrollLeft,1000); f.tick(); assert.equal(f.track.scrollLeft,2000); assert.equal(f.count.textContent,'03 / 03'); f.tick(); assert.equal(f.track.scrollLeft,0);
 f.root.emit('click',{target:f.dots[2]}); assert.equal(f.slides[2].inert,false); assert.equal(f.slides[0].inert,true); assert.equal(f.timers.size,0); f.controller.destroy();
-assert.match(fs.readFileSync('index.html', 'utf8'), /<script defer src="banner\.js"><\/script>/);
+assert.match(fs.readFileSync('index.html', 'utf8'), /<script defer src="\/banner\.js"><\/script>/);
 assert.match(fs.readFileSync('app.js', 'utf8'), /bannerController\?\.destroy\(\)/);
 console.log('PASS: giro e retorno, foco, aba oculta, fora da tela, pausa após toque, movimento reduzido e limpeza de rota.');

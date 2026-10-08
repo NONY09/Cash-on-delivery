@@ -22,10 +22,10 @@ vm.createContext(ctx);vm.runInContext(sources[0],ctx);const config=window.CHEGA_
 assert.equal(config.products.length,3);assert.equal(comb.id,'pente-alisador-portatil');assert.equal(knee.id,'joelheira-de-compressao');
 // Fixture-only products exercise catalog growth, categories, accents and HTML escaping.
 for(let i=1;i<=24;i++)config.products.push({...real,id:'test-'+i,name:i===1?'Organização & <limpeza>':'Produto '+i,category:i%2?'Casa':'Auto',imageAlt:'Imagem do produto de teste',summary:'Descrição de teste',video:null,images:undefined,details:undefined,faq:undefined});
-vm.runInContext(sources[1],ctx);vm.runInContext(sources[2],ctx);
+vm.runInContext(fs.readFileSync(path.join(root,'routes.js'),'utf8'),ctx);vm.runInContext(sources[1],ctx);vm.runInContext(sources[2],ctx);
 const initialHome=get('#main').innerHTML;
 assert.equal([...initialHome.matchAll(/data-banner-title=/g)].length,3);
-for(const match of initialHome.matchAll(/(?:src|srcset)="(assets\/[^"]+)"/g))assert(fs.existsSync(path.join(root,match[1])),match[1]);
+for(const match of initialHome.matchAll(/(?:src|srcset)="\/(assets\/[^"]+)"/g))assert(fs.existsSync(path.join(root,match[1])),match[1]);
 assert(!initialHome.includes('natal-carro'));
 assert.equal(storage.has('chega-cart-v1'),false);assert.equal(storage.get('unrelated'),'keep');
 assert(!staticHTML.includes('cart-dialog'));assert(!staticHTML.includes('cart-trigger'));
@@ -35,7 +35,7 @@ assert.equal(cards(),12);assert.equal(get('#catalog-more').hidden,false);assert.
 click('[data-action]',{action:'more-products'});assert.equal(cards(),24);assert.equal(get('#catalog-more').hidden,false);
 click('[data-action]',{action:'more-products'});assert.equal(cards(),27);assert.equal(get('#catalog-more').hidden,true);
 click('[data-category]',{category:'Casa'});assert.equal(cards(),12);assert.equal(get('#search-status').textContent,'12 de 12 produtos · Casa');
-assert(get('#product-grid').innerHTML.includes('Organização &amp; &lt;limpeza&gt;'));assert(!get('#product-grid').innerHTML.includes('href="#produto/test-2"'));
+assert(get('#product-grid').innerHTML.includes('Organização &amp; &lt;limpeza&gt;'));assert(!get('#product-grid').innerHTML.includes('href="/produto/test-2/"'));
 get('#search-input').value='organizacao';get('#search-form').handlers.submit({preventDefault(){}});assert.equal(cards(),1);assert.equal(get('#catalog-more').hidden,true);
 get('#search-input').value='inexistente';get('#search-form').handlers.submit({preventDefault(){}});assert.equal(cards(),0);assert(get('#product-grid').innerHTML.includes('Nenhum produto encontrado'));
 click('[data-action]',{action:'reset-filters'});assert.equal(cards(),12);

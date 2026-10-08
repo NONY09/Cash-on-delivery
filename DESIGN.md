@@ -205,3 +205,14 @@ The five new WebPs total 241,958 bytes: two 1000×1000 campaign photos, their 60
 - Don't treat the storefront's opening composition as a rule for every screen.
 - Don't imply live authentication, inventory or checkout through visual status.
 
+
+### Conversion and static publication refinement — 8 October 2026
+Preserve the festive world, typography and product assets. WOFF2 versions replace OTF delivery. On product pages the introduction occupies the desktop right column before offer information; mobile follows introduction → contained compact gallery → offers/details. The initial gallery is capped at 340px on mobile, and its thumbnails are 54×62px. The header garland reserves 24px on mobile product pages; home retains the seasonal canopy.
+
+Use 16px mobile primary copy and inputs, at least 12px functional secondary controls, and 44px tap targets. Offer unit prices are 13px; badges 12px. Product copy and facts can wrap; do not crop the product to fit. All hidden states use the native hidden attribute with an explicit CSS rule.
+
+The purchase dock reserves page padding with safe-area support, shares the exact current offer URL/total, and appears only on mobile when the main action is outside view. Hide it for help/privacy overlays and text-field focus. No extra WhatsApp floater competes with it. Cookie preferences use equal primary/secondary choices, visible explanations, revocation, and only appear when a service ID is configured. No imaginary metrics or purchase events.
+
+The default purchase verb is “Continuar com [kit]”; adjacent text explains the Logzz handoff, CEP, total, delivery and payment conditions. Comparison notes expose actual larger/lower-priced offers; no arbitrary prices or scarcity. Merchant/legal details and technical specifications must be supplied facts.
+
+QA remains source, assets, static HTML and functional tests. Browser visual approval, real-device testing, completed checkout and database audit are not implied.

@@ -5,7 +5,7 @@
 web
 
 ## Stack
-Static HTML, CSS and JavaScript chosen for this first frontend structure. Repository NONY09/Cash-on-delivery, branch main, connected by the user to Netlify. No installation or build required. Framework choice remains open for the backend stage.
+Static HTML, CSS and JavaScript chosen for this first frontend structure. Repository NONY09/Cash-on-delivery, branch main, connected by the user to Netlify. No dependency installation; a dependency-free Node build creates static product and policy pages in dist/. Framework choice remains open for the backend stage.
 
 ## Users
 Brazilian shoppers browsing on mobile and desktop, with no account required to browse.
@@ -38,3 +38,10 @@ No cart. Catalog card → choose a kit on that product page → exact affiliate 
 
 ## Account and budget constraints
 Name, email, password and optional Brazilian phone. Required explicit account-purpose permission, independent default-off email/WhatsApp marketing preferences, editable profile, export and password-confirmed deletion. Authorize only the user ID and active confirmed Auth session; never editable metadata. Server-side signup gate and initial cap of 5000 profiles. Assets and products stay on Netlify, no Realtime, no public user lists, one row per profile, no own order copies. Plan quotas and SMTP/SMS delivery must not be described as guaranteed free at every scale.
+
+## Conversion release — 8 October 2026
+Public product URLs and pre-rendered HTML replace hash-only navigation; legacy fragments remain compatible. Account SDK loads only on /conta/ and never blocks catalog rendering. Product title, summary and minimum kit price precede the gallery on mobile; selected-kit total and outbound action remain in a reserved bottom dock, hidden for help/privacy/text keyboard or when the main action is visible. Kits keep all 14 original affiliate links and quantities; comparisons explain non-monotonic prices without changing prices or inventing promotions.
+
+Woff2 fonts preserve the existing faces/licenses. Static product pages have individual canonical, Open Graph and Twitter metadata, plus a sitemap. Catalog indexing is enabled; account remains noindex. Only dist/ public assets ship; source, SQL, tests and prompts stay in the repository. Build rejects missing/invalid products, assets, prices and off-domain checkout URLs.
+
+Analytics adapter is OFF without supplied IDs and opt-in consent. It records only storefront events, never completed sales. Real order/delivery/commission measurement requires Logzz configuration; no analytics database or extra Supabase writes added. Merchant identity/address/hours and missing Pente specifications are not invented; configuration slots and READY.md record those external dependencies. Account signup/SMS remain paused.

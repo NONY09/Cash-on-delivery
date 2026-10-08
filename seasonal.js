@@ -33,5 +33,5 @@
     } };
   }
   window.ChegaSeasonal = { mount };
-  mount();
+  if (window.CHEGA_SITE?.seasonalTheme !== false) mount();
 }());

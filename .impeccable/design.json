@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-07T13:07:55.664885Z",
+  "generatedAt": "2026-10-08T09:00:00Z",
   "title": "Design System: Chega",
   "extensions": {
     "colorMeta": {
@@ -450,7 +450,9 @@
       "Flat content with lifted support and overlay surfaces.",
       "Gently curved controls and larger image corners."
     ],
-    "rules": [],
+    "rules": [
+      "Product mobile order: introduction, compact gallery, offers; reserved purchase dock hides for help/privacy/keyboard. Functional controls at least 12px and 44px tap targets. WOFF2 font delivery, public static routes, no inferred purchase events."
+    ],
     "dos": [
       "Do use coral for actions, selection and keyboard focus.",
       "Do keep content flat and use depth for lifted support and overlays.",

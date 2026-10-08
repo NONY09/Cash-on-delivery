@@ -10,8 +10,8 @@
     try {
       const url = new URL(offer.checkoutUrl);
       // Preserve o link completo do kit; nunca combine produtos ou altere a URL.
-      return url.protocol === 'https:' && !url.username && !url.password ? offer.checkoutUrl : null;
+      return url.protocol === 'https:' && url.hostname === 'entrega.logzz.com.br' && !url.username && !url.password ? offer.checkoutUrl : null;
     } catch { return null; }
   }
-  window.ChegaStore = Object.freeze({ findProduct, checkout });
+  window.ChegaStore = Object.freeze({ findProduct, checkout, productURL: id => window.ChegaRoutes.productURL(id) });
 })();

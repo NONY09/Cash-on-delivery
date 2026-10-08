@@ -32,3 +32,6 @@ Pente Alisador Portátil adds a separate product route, two original supplier im
 
 ## Fixed photo geometry
 The category frame is a fixed nonshrinking square, with a circular clipped outer edge and contained absolute image. Tall product photos cannot influence grid-track sizing or cover the category labels. Labels stay outside the circle. Product-card images use an independent square rectangular frame and a fully contained absolute image. Only category highlights are circular.
+
+## Conversion refinement
+Static pages: /produto/:id/, /privacidade/, /termos/, /trocas/, /conta/. Product-specific sharing metadata and real pre-rendered content; legacy hash links stay compatible. Title/price precede mobile gallery, compact festive header, and safe-area purchase dock shares chosen kit. Account entry is secondary in footer; loading its SDK is deferred until needed. Measurement is consent-first and remains disabled until IDs are supplied; no completed sales are inferred from checkout clicks. Unknown merchant identity, product specifications, customer reviews and support hours remain external dependencies. Source/assets/tests QA only.

@@ -57,7 +57,7 @@
     return 'Não foi possível concluir agora. Tente novamente mais tarde ou fale com o atendimento.';
   }
   const fromEmailLink = /(?:access_token|error_description|error_code)=/.test(location.hash);
-  const accountRoute = () => location.hash === '#conta';
+  const accountRoute = () => (location.hash === '#conta' || location.pathname.replace(/\/+$/, '') === '/conta');
   function status(message) {
     state.notice = message;
     const element = $('#account-status');
@@ -82,7 +82,7 @@
   }
   function redirectURL() {
     if (location.protocol !== 'https:') throw new UserInputError('Abra a loja pelo endereço publicado para receber o link de confirmação.');
-    return location.origin + location.pathname + '#conta';
+    return location.origin + '/conta/';
   }
   function labelInput(id, label, type, attrs = '', value = '') {
     return `<label for="${id}">${label}</label><input id="${id}" name="${id}" type="${type}" ${attrs} value="${escape(value)}">`;
