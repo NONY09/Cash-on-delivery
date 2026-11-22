@@ -1,5 +1,15 @@
 # Chega — loja com pagamento na entrega
 
+## Atualização visual — 22/11/2026
+
+A vitrine atual prioriza o celular: fundo branco, verde consistente, cabeçalho compacto e catálogo com fotos inteiras, preços e botões de largura completa. A campanha natalina e o carrossel deixaram de aparecer. No celular, a abertura é curta e não repete os produtos antes do catálogo; no desktop, há uma seleção estática dos três produtos. Categorias são filtros horizontais. O painel de kits e a barra móvel usam a mesma identidade.
+
+Os três produtos, os 14 links de checkout, preços e condições foram preservados. Pixel, dados do responsável e cadastro mantêm suas configurações anteriores.
+
+Verificação: build estático e os sete testes existentes passaram. Navegador conferido em larguras CSS de aproximadamente 338 e 451 px, usando zoom, com comparação entre scrollWidth e clientWidth, sem transbordamento horizontal da página. Filtro de beleza abriu apenas o pente; selecionar 2 unidades atualizou preço, botão principal e barra móvel para R$ 199,99 e o link correto. Nenhum pedido foi enviado. A revisão em larguras de celular não simula um dispositivo físico nem comprova entrega por CEP.
+
+As seções abaixo registram também etapas anteriores; detalhes natalinos e do carrossel descrevem o histórico e não a apresentação atual.
+
 Loja afiliada com Resina Extreme, Joelheira de Compressão e Pente Alisador Portátil, com ofertas reais da Logzz. Nome Chega. aprovado, banner natalino rotativo, catálogo público, busca e categorias, página de produto, pedidos individuais por produto, sem carrinho, kits específicos por oferta, FAQ em formato de conversa, suporte WhatsApp e telas de conta. Build estático com Node, sem dependências novas. O SDK oficial do Supabase 2.117.2 é servido localmente em `vendor/` e carregado somente na área de conta, com versão, lockfile, origem e licença registrados.
 
 ## Executar e publicar

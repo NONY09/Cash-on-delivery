@@ -24,7 +24,9 @@ assert.equal(config.products.length,3);assert.equal(comb.id,'pente-alisador-port
 for(let i=1;i<=24;i++)config.products.push({...real,id:'test-'+i,name:i===1?'Organização & <limpeza>':'Produto '+i,category:i%2?'Casa':'Auto',imageAlt:'Imagem do produto de teste',summary:'Descrição de teste',video:null,images:undefined,details:undefined,faq:undefined});
 vm.runInContext(fs.readFileSync(path.join(root,'routes.js'),'utf8'),ctx);vm.runInContext(sources[1],ctx);vm.runInContext(sources[2],ctx);
 const initialHome=get('#main').innerHTML;
-assert.equal([...initialHome.matchAll(/data-banner-title=/g)].length,3);
+assert.equal([...initialHome.matchAll(/class="spotlight-product"/g)].length,3);
+for(const product of [real,knee,comb])assert(initialHome.includes('href="/produto/'+product.id+'/"'));
+assert(!initialHome.includes('aria-roledescription="carrossel"'));
 for(const match of initialHome.matchAll(/(?:src|srcset)="\/(assets\/[^"]+)"/g))assert(fs.existsSync(path.join(root,match[1])),match[1]);
 assert(!initialHome.includes('natal-carro'));
 assert.equal(storage.has('chega-cart-v1'),false);assert.equal(storage.get('unrelated'),'keep');
