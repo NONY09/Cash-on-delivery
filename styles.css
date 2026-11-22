@@ -602,4 +602,31 @@ html:not(.js-enabled) .search,html:not(.js-enabled) .category-highlights,html:no
 }
 @media(max-width:360px){.purchase-dock{padding-inline:14px;gap:10px}.purchase-dock strong{font-size:20px}.purchase-dock .order-button{font-size:13px}.product-intro h1{font-size:29px}}
 
+/* Keep the product and kit choice close to the first screen. */
+.product-route .holiday-canopy:not(.footer-canopy){display:none}
+.product-route .header-main{min-height:72px}
+.product-route .breadcrumbs{padding-block:18px;font-size:14px}
+.product-route .product-layout{padding-top:8px;row-gap:16px}
+.product-route .product-info .product-price{margin-top:12px}
+.product-route .offer-selector{margin:18px 0}
+.product-route .offer-option{min-height:100px;transition:background-color .15s,border-color .15s}
+.product-route .offer-option:hover{border-color:var(--forest)}
+.product-route .offer-option:has(input:checked){border:2px solid var(--forest);padding:13px 11px;background:#edf4ef}
+.product-route .offer-option input{accent-color:var(--forest);flex-shrink:0}
+.product-route .offer-option:has(input:focus-visible){outline:3px solid var(--forest);outline-offset:3px}
+.product-route .offer-grid .offer-option small,.product-route .offer-hint{font-size:14px}
+.product-route .order-button{min-height:56px;font-size:16px}
+.product-route .order-button .icon{display:none}
+.product-route .payment-note{border-left:3px solid var(--forest);background:#edf4ef}
+.product-route .payment-note>.icon{color:var(--forest);flex-shrink:0}
+.product-route .payment-note span{font-size:14px;line-height:1.5}
+@media(max-width:760px){
+ .product-route .holiday-canopy:not(.footer-canopy){height:24px}
+ .product-route .header-main{min-height:0}
+ .product-route .offer-option:has(input:checked){padding:13px 11px}
+ .product-route .offer-option{min-height:108px}
+ .product-route .purchase-dock .order-button{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){.product-route .offer-option{transition:none}}
+
 [hidden]{display:none!important}
